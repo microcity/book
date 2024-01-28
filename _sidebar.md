@@ -13,7 +13,7 @@
     * [5.1. 最小费用流模型](section1/5.1.min_net_flow.md)
 * 第二篇 模型求解技术
   * [启发式算法](section2/heuristics.md)
-* 第三篇 动态仿真建模
+* 第三篇 可视化仿真
   * [事件调度法](section3/event_scheduling.md)
 * 附录
   * [软件指南](soft_guide.md)
