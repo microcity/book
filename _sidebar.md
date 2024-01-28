@@ -1,4 +1,3 @@
-* [封面](/)
 * [前言](preface.md)
 * 第一篇 从数据到模型
   * [1. 序言](section1/1.introduction.md)
