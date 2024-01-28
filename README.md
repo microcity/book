@@ -1,4 +1,4 @@
-<img src="img/cover.jpg" alt="封面" width="400"/>
+![cover](img/cover.jpg)
  
 《物流数字化建模技术》  
 Dive into Logistics Modelling
