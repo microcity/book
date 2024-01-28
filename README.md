@@ -1,4 +1,4 @@
-![cover](img/cover.jpg)
+![cover](img/cover.png)
  
 《物流数字化建模技术》  
 Dive into Logistics Modelling
