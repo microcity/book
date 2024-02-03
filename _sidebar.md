@@ -1,6 +1,6 @@
 * [前言](preface.md)
 * [1. 序言](1.introduction.md)
-* [2. 物流数据处理](2.data_processing.md)
+* [2. 空间数据处理](2.data_processing.md)
   * [2.1. 数据的分类及存储](2.1.data_processing.md)
   * [2.2. 空间数据的介绍](2.2.spatial_data_intro.md)
   * [2.3. 空间数据的编辑](2.3.spatial_data_edit.md)
@@ -26,7 +26,8 @@
   * [6.2. CVRP数学模型](6.2.cvrp_models.md)
   * [6.3. CVRP求解算法](6.3.vrp_algorithm.md)
   * [6.4. 其他车辆路径问题](6.4.other_vrp.md)
-* [7. 整数规划算法设计](7.mip_algorithms.md)
+* [7. 大规模整数规划算法设计](7.mip_algorithms.md)
+
 * [8. 可视化仿真技术](8.visual_simulation.md)
 * 附录
   * [软件指南](soft_guide.md)
