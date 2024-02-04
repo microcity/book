@@ -36,7 +36,7 @@
   * [8.2. 时间推进法](8.2.time_scanning.md)
   * [8.3. 事件调度法](8.3.event_scheduling.md)
   * [8.4. 数据采集与随机数生成](8.4.random_gen.md)
-  * [8.5. 输出分析与校核验证]（8.5.out_anaylsis.md)
+  * [8.5. 输出分析与校核验证](8.5.out_anaylsis.md)
 * 附录
   * [软件指南](soft_guide.md)
   * [参考文献](references.md)
