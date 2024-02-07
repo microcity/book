@@ -1,6 +1,6 @@
 - [前言](preface.md)
 - [1. 序言](chapter1/1.introduction.md)
-- [2. 空间数据处理](chapter2/2.data_processing.md)
+- 2. 空间数据处理
   - [2.1. 数据的分类及存储](chapter2/2.1.data_processing.md)
   - [2.2. 空间数据的介绍](chapter2/2.2.spatial_data_intro.md)
   - [2.3. 空间数据的编辑](chapter2/2.3.spatial_data_edit.md)
