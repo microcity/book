@@ -26,7 +26,13 @@
           '/.*/_sidebar.md': '/_sidebar.md'
         },
         subMaxLevel: 3,
-	      search: 'auto',
+    	  search: {
+      		maxAge: 86400000, // Expiration time, the default one day
+      		paths: 'auto',
+      		placeholder: '🔍搜索',
+      		noData: '找不到结果',
+      		depth: 6
+    	  },
         sidebarDisplayLevel: 1, // set sidebar display level
 	
       	//替换占位符中microcityurl的值
