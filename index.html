@@ -21,6 +21,17 @@
         subMaxLevel: 3,
 	      search: 'auto',
         sidebarDisplayLevel: 1, // set sidebar display level
+	  plugins: [
+	    function(hook, vm) {
+	      hook.beforeEach(function(content) {
+	        // 获取全局变量microcityurl的值
+	        var microcityurl = window.microcityurl || '';
+	
+	        // 替换内容中的{{microcityurl}}占位符
+	        return content.replace(/\{\{microcityurl\}\}/g, microcityurl);
+	      });
+	    }
+	  ]
       };
     </script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
