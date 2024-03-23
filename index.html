@@ -33,7 +33,7 @@
 	    // 获取当前页面的URL
 	    var currentURL = window.location.href;
 	    // 使用正则表达式提取根路径保存为全局变量
-	    self.microcityurl = currentURL.match(/^(.*?\/\/[^\/]+)\//)[1];
+	    self.microcityurl = currentURL.match(/^(.*?\/\/[^\/]+\/)/)[1];
 	    // 测试：在控制台输出全局变量rootPath
 	    console.log(microcityurl);
 	  };
