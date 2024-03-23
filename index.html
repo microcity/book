@@ -27,6 +27,16 @@
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
     <!-- plugins -->
     <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-
+	<script>
+	  // 当页面加载完成时执行此函数
+	  window.onload = function() {
+	    // 获取当前页面的URL
+	    var currentURL = window.location.href;
+	    // 使用正则表达式提取根路径保存为全局变量
+	    self.microcityurl = currentURL.match(/^(.*?\/\/[^\/]+)\//)[1];
+	    // 测试：在控制台输出全局变量rootPath
+	    console.log(microcityurl);
+	  };
+	</script>
   </body>
 </html>
