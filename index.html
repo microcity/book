@@ -12,6 +12,13 @@
   <body>
     <div id="app"></div>
     <script>
+    	//获取microcity的根url
+    	window.onload = function() {
+    		// 获取当前页面的URL
+    		var currentURL = window.location.href;
+    		// 使用正则表达式提取根路径保存为全局变量
+    		self.microcityurl = currentURL.match(/^(.*?\/\/[^\/]+\/)/)[1] + "#/";
+    	};
       window.$docsify = {
         name: '物流空间建模',
         loadSidebar: true,
@@ -21,42 +28,23 @@
         subMaxLevel: 3,
 	      search: 'auto',
         sidebarDisplayLevel: 1, // set sidebar display level
-	  plugins: [
-	    function(hook, vm) {
-	      hook.beforeEach(function(content) {
-	        // 获取全局变量microcityurl的值
-	        var microcityurl = window.microcityurl || '';
 	
-	        // 替换内容中的{{microcityurl}}占位符
-	        return content.replace(/\{\{microcityurl\}\}/g, microcityurl);
-	      });
-	    }
-	  ]
+      	//替换占位符中microcityurl的值
+      	  plugins: [
+      	    function(hook, vm) {
+      	      hook.beforeEach(function(content) {
+      	        // 获取全局变量microcityurl的值
+      	        var microcityurl = window.microcityurl || '';
+      	        // 替换内容中的{{microcityurl}}占位符
+      	        return content.replace(/\{\{microcityurl\}\}/g, microcityurl);
+      	      });
+      	    }
+      	  ]
       };
     </script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
     <!-- plugins -->
     <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-	<script>
-	// 当页面加载完成时执行此函数
-	window.onload = function() {
-		// 获取当前页面的URL
-		var currentURL = window.location.href;
-		// 使用正则表达式提取根路径保存为全局变量
-		self.microcityurl = currentURL.match(/^(.*?\/\/[^\/]+\/)/)[1] + "#/";
-	};
-	// 当文档加载完成后执行
-	document.addEventListener('DOMContentLoaded', function() {
-		// 查找所有包含占位符的元素
-		var elements = document.querySelectorAll('[microcityurl]');
-		
-		// 遍历并替换内容
-		elements.forEach(function(el) {
-			var variableName = el.getAttribute('microcityurl');
-			el.textContent = self[microcityurl];
-		});
-	});
-	</script>
   </body>
 </html>
