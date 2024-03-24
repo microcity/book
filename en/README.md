@@ -1,6 +1,6 @@
 ![cover](../img/cover.png)
  
-# From Spatial Data to Logistics Models
+# Logistics Spatial Modeling
 
 Interactive Logistics Textbook
 
