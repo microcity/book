@@ -8,7 +8,7 @@ This book is intended for undergraduates and graduate students in the logistics 
 
 ## Practice now
 As a new form of textbook, a major feature of this book is that it integrates an online practice environment. The theoretical knowledge learned can be applied immediately without leaving the immersive environment. Below is a demonstration example. You can see an embedded web application MicroCity Web, with a button bar above and a message bar below. The code area is on the left and the scene area is on the right. If you are using it for the first time, click the play button![](../../img/play.svg) to see a rotating cube. Try clicking the pause![](../../img/pause.svg) and use The left and right mouse buttons (some browsers require mouse gestures to be disabled) control the perspective. For more detailed information about the use of the software, please refer to the built-in documentation and related content in each chapter.
-<iframe src="https://microcity.github.io" width="100%" height="600"></iframe>
+<iframe src="../.." width="100%" height="600"></iframe>
 
 ## Acknowledgments
 The implementation of this textbook project is thanks to the Liaoning Provincial Teaching Reform Project (Liaojiotong [2022] No. 166-341) and the Dalian Maritime University Undergraduate Textbook Construction Project (JZX2023032).
