@@ -1,4 +1,4 @@
-- [Preface](en/preface.md)
+* [Preface](preface.md)
 * [1. 序言](chapter1/1.introduction.md)
 * [2. 空间数据处理](chapter2/2.data_processing.md)
   * [2.1. 空间数据的分类](chapter2/2.1.data_classify.md)
