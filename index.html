@@ -12,13 +12,6 @@
   <body>
     <div id="app"></div>
     <script>
-    	//获取microcity的根url
-    	window.onload = function() {
-    		// 获取当前页面的URL
-    		var currentURL = window.location.href;
-    		// 使用正则表达式提取根路径保存为全局变量
-    		self.microcityurl = currentURL.match(/^(.*?\/\/[^\/]+)\//)[1];
-    	};
       window.$docsify = {
         name: '物流空间建模',
         loadSidebar: true,
@@ -34,18 +27,6 @@
       		depth: 6
     	  },
         sidebarDisplayLevel: 1, // set sidebar display level
-	
-      	//替换占位符中microcityurl的值
-      	  plugins: [
-      	    function(hook, vm) {
-      	      hook.beforeEach(function(content) {
-      	        // 获取全局变量microcityurl的值
-      	        var microcityurl = window.microcityurl || '';
-      	        // 替换内容中的{{microcityurl}}占位符
-      	        return content.replace(/\{\{microcityurl\}\}/g, microcityurl);
-      	      });
-      	    }
-      	  ]
       };
     </script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
