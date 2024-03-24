@@ -15,8 +15,12 @@
       window.$docsify = {
         name: '物流空间建模',
         loadSidebar: true,
+        loadNavbar: true,
         alias: {
-          '/.*/_sidebar.md': '/_sidebar.md'
+          '/': '/README.md',
+          '/en/': '/en/README.md',
+          '/_sidebar.md': '/_sidebar.md',
+          '/en/_sidebar.md': '/en/_sidebar.md',
         },
         subMaxLevel: 3,
     	  search: {
@@ -27,6 +31,10 @@
       		depth: 6
     	  },
         sidebarDisplayLevel: 1, // set sidebar display level
+        fallbackLanguages: {
+          '/': '/',
+          '/en/': '/en/',
+        }
       };
     </script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
