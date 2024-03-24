@@ -14,7 +14,6 @@ create_files() {
 }
 
 # 执行创建文件和目录的命令
-create_files . preface.md "前言"
 create_files chapter1 1.introduction.md "1. 序言"
 create_files chapter2 2.data_processing.md "2. 空间数据处理"
 create_files chapter2 2.1.data_classify.md "2.1. 空间数据的分类"
