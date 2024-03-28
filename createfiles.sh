@@ -1,50 +1,49 @@
 #!/bin/bash
 
-# 创建目录和文件的函数
-create_files() {
-    local dir=$1
-    local file=$2
-    local title=$3
-
-    # 创建目录
-    mkdir -p $dir
-
-    # 创建文件并写入标题
-    echo "# $title" > $dir/$file
+# Function to create files from a line of text
+create_file_from_line() {
+    local line="$1"
+    # Extract the file name and content using regex
+    if [[ $line =~ \*\ \[(.*)\]\((.*)\) ]]; then
+        local content="${BASH_REMATCH[1]}"
+        local filename="${BASH_REMATCH[2]}"
+        # Create the directory if it doesn't exist
+        mkdir -p "$(dirname "$filename")"
+        # Write the content to the file
+        echo "# $content" > "$filename"
+    fi
 }
 
-# 执行创建文件和目录的命令
-create_files chapter1 1.introduction.md "1. 序言"
-create_files chapter2 2.data_processing.md "2. 空间数据处理"
-create_files chapter2 2.1.data_classify.md "2.1. 空间数据的分类"
-create_files chapter2 2.2.projection.md "2.2. 坐标系及投影显示"
-create_files chapter2 2.3.object_editing.md "2.3. 场景对象的编辑"
-create_files chapter2 2.4.data_structure.md "2.4. 空间数据的结构"
-create_files chapter3 3.spatial_location.md "3. 空间选址优化"
-create_files chapter3 3.1.planar_centroid.md "3.1. 平面重心方法"
-create_files chapter3 3.2.continous_approx.md "3.2. 连续近似方法"
-create_files chapter3 3.3.discrete_location.md "3.3. 离散选址模型"
-create_files chapter3 3.4.lagrangian_relax.md "3.4. Lagrangian松弛技术"
-create_files chapter4 4.net_construction.md "4. 最短路径问题"
-create_files chapter4 4.1.net_topologizing.md "4.1. 空间网络拓扑"
-create_files chapter4 4.2.net_traversing.md "4.2. 网络路径遍历"
-create_files chapter4 4.3.shortest_path_model.md "4.3. 最短路径问题"
-create_files chapter4 4.4.prime_dual.md "4.4. 标号法及Prime-Dual原理"
-create_files chapter5 5.net_flow.md "5. 网络流问题"
-create_files chapter5 5.1.min_net_flow.md "5.1. 最小费用流模型"
-create_files chapter5 5.2.benders_decomp.md "5.2. Benders分解技术"
-create_files chapter5 5.3.nonlinear_flow.md "5.3. 非线性网络流"
-create_files chapter5 5.4.space_price_equil.md "5.4. 空间价格均衡"
-create_files chapter6 6.vehicle_routing_problem.md "6. 车辆路径规划"
-create_files chapter6 6.1.cvrp_models.md "6.1. CVRP数学模型"
-create_files chapter6 6.2.dw_colgen.md "6.2. DW分解及列生成"
-create_files chapter6 6.3.vrp_algorithm.md "6.3. 启发式算法设计"
-create_files chapter6 6.4.spatial_part.md "6.4. 空间分区技术"
-create_files chapter7 7.simulation.md "7. 虚拟仿真技术"
-create_files chapter7 7.1.time_scanning.md "7.1. 时间扫描推进法"
-create_files chapter7 7.2.event_scheduling.md "7.2. 离散事件调度法"
-create_files chapter7 7.3.random_gen.md "7.3. 数据采集与随机数生成"
-create_files chapter7 7.4.out_anaylsis.md "7.4. 输出分析与校核验证"
-create_files appendix appedix.md "附录"
-create_files appendix soft_guide.md "软件指南"
-create_files appendix references.md "参考文献"
+# Read each line from the input file
+while IFS= read -r line; do
+    create_file_from_line "$line"
+done <<EOF
+* [2. 数据处理基础](chapter2/2.data_processing.md)
+  * [2.1. 数据分类及结构](chapter2/2.1.data_structure.md)
+  * [2.2. 数据编辑及可视化](chapter2/2.2.data_visualization.md)
+  * [2.3. 地理数据分析](chapter2/2.3.geodata_analysis.md)
+  * [2.4. 空间网络拓扑](chapter2/2.4.network_topology.md)
+* [3. 平面设施选址](chapter3/3.location_choice.md)
+  * [3.1. 迭代重心方法](chapter3/3.1.iterative_centroid.md)
+  * [3.2. 连续近似方法](chapter3/3.2.continous_approx.md)
+  * [3.3. 离散选址模型](chapter3/3.3.discrete_location.md)
+  * [3.4. Lagrangian松弛技术](chapter3/3.4.lagrangian_relax.md)
+* [4. 运输路径规划](chapter4/4.route_planning.md)
+  * [4.1. 最短路径问题](chapter4/4.1.shortest_path.md)
+  * [4.2. 标号法及Prime-Dual原理](chapter4/4.2.labelling_algorithm.md)
+  * [4.3. 车辆路径问题](chapter4/4.3.vehicle_routing.md)
+  * [4.4. DW分解及列生成](chapter4/4.4.column_generation.md)
+* [5. 网络流量分配](chapter5/5.flow_assignment.md)
+  * [5.1. 最小费用流模型](chapter5/5.1.minimum_flow.md)
+  * [5.2. 非线性网络流](chapter5/5.2.nonlinear_flow.md)
+  * [5.2. Benders分解技术](chapter5/5.3.benders_decomposition.md)
+  * [5.4. 空间价格均衡](chapter5/5.4.price_equilibrium.md)
+* [6. 虚拟仿真建模](chapter6/6.simulation.md)
+  * [6.1. 虚拟现实技术](6.1.virtual_reality.md)
+  * [6.2. 时间扫描推进法](chapter6/6.2.time_scanning.md)
+  * [6.3. 离散事件调度法](chapter6/6.3.event_scheduling.md)
+  * [6.4. IO分析与随机数生成](chapter6/6.4.random_generation.md)
+* [附录](appendix/appedix.md)
+  * [软件指南](appendix/soft_guide.md)
+  * [参考文献](appendix/references.md)
+EOF
