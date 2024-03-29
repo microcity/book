@@ -1,6 +1,6 @@
 ![cover](../img/cover.png)
  
-# Logistics Spatial Modeling
+# Logistics Network Modeling
 
 Interactive Logistics Textbook
 

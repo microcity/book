@@ -21,7 +21,7 @@
   * [5.2. Benders分解技术](chapter5/5.3.benders_decomposition.md)
   * [5.4. 空间价格均衡](chapter5/5.4.price_equilibrium.md)
 * [6. 虚拟仿真建模](chapter6/6.simulation.md)
-  * [6.1. 虚拟现实技术](6.1.virtual_reality.md)
+  * [6.1. 虚拟现实技术](chapter6/6.1.virtual_reality.md)
   * [6.2. 时间扫描推进法](chapter6/6.2.time_scanning.md)
   * [6.3. 离散事件调度法](chapter6/6.3.event_scheduling.md)
   * [6.4. IO分析与随机数生成](chapter6/6.4.random_generation.md)
