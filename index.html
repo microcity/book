@@ -35,6 +35,21 @@
           inlineMath   : [['$', '$'], ['\\(', '\\)']], // default
           displayMath  : [['$$', '$$']],               // default
         },
+        scrollToTop: {
+          auto: true,  // 是否自动隐藏按钮
+          text: '↑',  // 按钮文字
+          right: 15,  // 按钮距离窗口右侧距离
+          bottom: 15,  // 按钮距离窗口底部距离
+          offset: 500  // 页面滚动多少距离后显示按钮
+        },
+        plugins: [
+          function(hook, vm) {
+            hook.doneEach(function() {
+              document.body.scrollTop = 0; // 对于老版本的浏览器
+              document.documentElement.scrollTop = 0; // 对于现代浏览器
+            });
+          }
+        ],
       };
     </script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
@@ -42,5 +57,6 @@
     <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify-latex@0"></script>
+    <script src="//unpkg.com/docsify-scroll-to-top/dist/docsify-scroll-to-top.min.js"></script>
   </body>
 </html>
