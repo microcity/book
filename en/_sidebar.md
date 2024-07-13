@@ -6,7 +6,7 @@
    * [2.3. Spatial Data Analysis](chapter2/2.3.data_analysis.md)
    * [2.4. Spatial Network Topologizing](chapter2/2.4.network_topology.md)
 * [3. Planar Facility Location Choice](chapter3/3.location_choice.md)
-   * [3.1. Iterative Centroid Method](chapter3/3.1.iterative_centroid.md)
+   * [3.1. Spatial Median Problem](chapter3/3.1.spatial_median.md)
    * [3.2. Continuous Approximation Method](chapter3/3.2.continous_approx.md)
    * [3.3. Discrete Location Model](chapter3/3.3.discrete_location.md)
    * [3.4. Lagrangian Relaxation](chapter3/3.4.lagrangian_relax.md)

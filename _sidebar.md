@@ -6,7 +6,7 @@
   * [2.3. 空间数据分析](chapter2/2.3.data_analysis.md)
   * [2.4. 空间网络拓扑](chapter2/2.4.network_topology.md)
 * [3. 平面设施选址](chapter3/3.location_choice.md)
-  * [3.1. 迭代重心方法](chapter3/3.1.iterative_centroid.md)
+  * [3.1. 空间中位问题](chapter3/3.1.spatial_median.md)
   * [3.2. 连续近似方法](chapter3/3.2.continous_approx.md)
   * [3.3. 离散选址模型](chapter3/3.3.discrete_location.md)
   * [3.4. 拉格朗日松弛技术](chapter3/3.4.lagrangian_relax.md)
