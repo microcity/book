@@ -61,11 +61,11 @@
               document.body.scrollTop = 0; // 对于老版本的浏览器
               document.documentElement.scrollTop = 0; // 对于现代浏览器
               
-              // 自动修改图片路径，在 "../" 后添加 "book/"
-              const images = document.querySelectorAll('img[src^="../"]');
+              // 自动修改图片路径，将 "img" 替换为 "book/img"
+              const images = document.querySelectorAll('img[src*="img"]');
               images.forEach(img => {
-                if (!img.src.includes('../book/')) {
-                  img.src = img.src.replace('../', '../book/');
+                if (!img.src.includes('book/img')) {
+                  img.src = img.src.replace(/img/g, 'book/img');
                 }
               });
             });
