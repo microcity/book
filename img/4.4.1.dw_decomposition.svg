@@ -1,0 +1,120 @@
+<svg width="1200" height="700" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" overflow="hidden">
+  <g transform="translate(50 50)">
+    <!-- 标题 -->
+    <text x="500" y="30" text-anchor="middle" font-family="Microsoft YaHei" font-size="24" font-weight="bold">Dantzig-Wolfe分解原理</text>
+    
+    <!-- 原问题 -->
+    <g transform="translate(50, 80)">
+      <rect x="0" y="0" width="300" height="200" stroke="#000000" stroke-width="2" fill="#F0F8FF" rx="10"/>
+      <text x="150" y="25" text-anchor="middle" font-family="Microsoft YaHei" font-size="18" font-weight="bold">原问题 (Original Problem)</text>
+      
+      <text x="20" y="50" font-family="Microsoft YaHei" font-size="14">min c^T x</text>
+      <text x="20" y="75" font-family="Microsoft YaHei" font-size="14">s.t. Ax = b  (连接约束)</text>
+      <text x="20" y="100" font-family="Microsoft YaHei" font-size="14">     Dx ≤ d  (局部约束)</text>
+      <text x="20" y="125" font-family="Microsoft YaHei" font-size="14">     x ≥ 0</text>
+      
+      <text x="20" y="160" font-family="Microsoft YaHei" font-size="12" fill="#666666">大规模问题，直接求解困难</text>
+      <text x="20" y="180" font-family="Microsoft YaHei" font-size="12" fill="#666666">变量数量多，计算复杂度高</text>
+    </g>
+    
+    <!-- 分解箭头 -->
+    <g transform="translate(400, 180)">
+      <line x1="0" y1="0" x2="100" y2="0" stroke="#FF6600" stroke-width="4" marker-end="url(#arrowhead-orange)"/>
+      <text x="50" y="-10" text-anchor="middle" font-family="Microsoft YaHei" font-size="16" font-weight="bold" fill="#FF6600">DW分解</text>
+      <text x="50" y="20" text-anchor="middle" font-family="Microsoft YaHei" font-size="12" fill="#FF6600">凸组合表示</text>
+    </g>
+    
+    <!-- 主问题 -->
+    <g transform="translate(550, 80)">
+      <rect x="0" y="0" width="280" height="200" stroke="#000000" stroke-width="2" fill="#FFE6E6" rx="10"/>
+      <text x="140" y="25" text-anchor="middle" font-family="Microsoft YaHei" font-size="18" font-weight="bold">主问题 (Master Problem)</text>
+      
+      <text x="20" y="50" font-family="Microsoft YaHei" font-size="14">min Σ (c^T x^j) λⱼ</text>
+      <text x="20" y="75" font-family="Microsoft YaHei" font-size="14">s.t. Σ (Ax^j) λⱼ = b</text>
+      <text x="20" y="100" font-family="Microsoft YaHei" font-size="14">     Σ λⱼ = 1</text>
+      <text x="20" y="125" font-family="Microsoft YaHei" font-size="14">     λⱼ ≥ 0</text>
+      
+      <text x="20" y="160" font-family="Microsoft YaHei" font-size="12" fill="#666666">在极点的凸组合空间求解</text>
+      <text x="20" y="180" font-family="Microsoft YaHei" font-size="12" fill="#666666">规模较小，易于求解</text>
+    </g>
+    
+    <!-- 子问题 -->
+    <g transform="translate(550, 320)">
+      <rect x="0" y="0" width="280" height="200" stroke="#000000" stroke-width="2" fill="#E6FFE6" rx="10"/>
+      <text x="140" y="25" text-anchor="middle" font-family="Microsoft YaHei" font-size="18" font-weight="bold">子问题 (Subproblem)</text>
+      
+      <text x="20" y="50" font-family="Microsoft YaHei" font-size="14">min (c^T - π^T A) x</text>
+      <text x="20" y="75" font-family="Microsoft YaHei" font-size="14">s.t. Dx ≤ d</text>
+      <text x="20" y="100" font-family="Microsoft YaHei" font-size="14">     x ≥ 0</text>
+      
+      <text x="20" y="135" font-family="Microsoft YaHei" font-size="12" fill="#666666">生成新的极点 x^j</text>
+      <text x="20" y="155" font-family="Microsoft YaHei" font-size="12" fill="#666666">π 是主问题的对偶价格</text>
+      <text x="20" y="175" font-family="Microsoft YaHei" font-size="12" fill="#666666">独立求解，可并行化</text>
+    </g>
+    
+    <!-- 迭代箭头 -->
+    <g transform="translate(690, 280)">
+      <path d="M 0 0 Q -50 -30 -100 -60" stroke="#009900" stroke-width="3" fill="none" marker-end="url(#arrowhead-green)"/>
+      <text x="-50" y="-40" text-anchor="middle" font-family="Microsoft YaHei" font-size="14" fill="#009900">新列</text>
+    </g>
+    
+    <g transform="translate(690, 220)">
+      <path d="M 0 0 Q -50 30 -100 60" stroke="#CC0000" stroke-width="3" fill="none" marker-end="url(#arrowhead-red)"/>
+      <text x="-50" y="40" text-anchor="middle" font-family="Microsoft YaHei" font-size="14" fill="#CC0000">对偶价格</text>
+    </g>
+    
+    <!-- 算法流程 -->
+    <g transform="translate(900, 150)">
+      <text x="0" y="0" font-family="Microsoft YaHei" font-size="18" font-weight="bold">算法流程:</text>
+      
+      <circle cx="15" cy="35" r="12" stroke="#000000" stroke-width="2" fill="#FFE6E6"/>
+      <text x="15" y="40" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">1</text>
+      <text x="35" y="40" font-family="Microsoft YaHei" font-size="14">初始化主问题</text>
+      
+      <circle cx="15" cy="65" r="12" stroke="#000000" stroke-width="2" fill="#FFE6E6"/>
+      <text x="15" y="70" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">2</text>
+      <text x="35" y="70" font-family="Microsoft YaHei" font-size="14">求解主问题</text>
+      
+      <circle cx="15" cy="95" r="12" stroke="#000000" stroke-width="2" fill="#E6FFE6"/>
+      <text x="15" y="100" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">3</text>
+      <text x="35" y="100" font-family="Microsoft YaHei" font-size="14">求解子问题</text>
+      
+      <circle cx="15" cy="125" r="12" stroke="#000000" stroke-width="2" fill="#FFFFE6"/>
+      <text x="15" y="130" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">4</text>
+      <text x="35" y="130" font-family="Microsoft YaHei" font-size="14">检查最优性</text>
+      
+      <circle cx="15" cy="155" r="12" stroke="#000000" stroke-width="2" fill="#E6F3FF"/>
+      <text x="15" y="160" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">5</text>
+      <text x="35" y="160" font-family="Microsoft YaHei" font-size="14">添加新列，重复</text>
+      
+      <!-- 停止条件 -->
+      <rect x="0" y="190" width="220" height="80" stroke="#FF6600" stroke-width="2" fill="#FFF8DC" rx="5"/>
+      <text x="110" y="210" text-anchor="middle" font-family="Microsoft YaHei" font-size="14" font-weight="bold">停止条件:</text>
+      <text x="10" y="230" font-family="Microsoft YaHei" font-size="12">子问题目标值 ≥ 0</text>
+      <text x="10" y="250" font-family="Microsoft YaHei" font-size="12">即：无法找到改进解</text>
+      <text x="10" y="270" font-family="Microsoft YaHei" font-size="12">当前解为最优解</text>
+    </g>
+    
+    <!-- 优势说明 -->
+    <g transform="translate(50, 350)">
+      <text x="0" y="0" font-family="Microsoft YaHei" font-size="18" font-weight="bold">DW分解的优势:</text>
+      <text x="0" y="25" font-family="Microsoft YaHei" font-size="14">• 将大规模问题分解为小规模子问题</text>
+      <text x="0" y="45" font-family="Microsoft YaHei" font-size="14">• 子问题可以并行求解</text>
+      <text x="0" y="65" font-family="Microsoft YaHei" font-size="14">• 适用于具有块结构的线性规划问题</text>
+      <text x="0" y="85" font-family="Microsoft YaHei" font-size="14">• 为列生成算法提供理论基础</text>
+    </g>
+    
+    <!-- 箭头标记定义 -->
+    <defs>
+      <marker id="arrowhead-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#FF6600"/>
+      </marker>
+      <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#009900"/>
+      </marker>
+      <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#CC0000"/>
+      </marker>
+    </defs>
+  </g>
+</svg>

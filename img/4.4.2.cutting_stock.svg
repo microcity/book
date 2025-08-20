@@ -1,0 +1,149 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" overflow="hidden">
+  <g transform="translate(50 50)">
+    <!-- 标题 -->
+    <text x="500" y="30" text-anchor="middle" font-family="Microsoft YaHei" font-size="24" font-weight="bold">下料问题的列生成算法</text>
+    
+    <!-- 原材料 -->
+    <g transform="translate(50, 80)">
+      <text x="0" y="0" font-family="Microsoft YaHei" font-size="18" font-weight="bold">原材料 (长度L=10):</text>
+      <rect x="0" y="20" width="300" height="40" stroke="#000000" stroke-width="3" fill="#D2B48C"/>
+      <text x="150" y="45" text-anchor="middle" font-family="Microsoft YaHei" font-size="16" font-weight="bold">L = 10</text>
+    </g>
+    
+    <!-- 需求 -->
+    <g transform="translate(400, 80)">
+      <text x="0" y="0" font-family="Microsoft YaHei" font-size="18" font-weight="bold">需求:</text>
+      
+      <rect x="0" y="20" width="90" height="30" stroke="#000000" stroke-width="2" fill="#FFE6E6"/>
+      <text x="45" y="40" text-anchor="middle" font-family="Microsoft YaHei" font-size="14">长度3: 需求5</text>
+      
+      <rect x="100" y="20" width="150" height="30" stroke="#000000" stroke-width="2" fill="#E6F3FF"/>
+      <text x="175" y="40" text-anchor="middle" font-family="Microsoft YaHei" font-size="14">长度5: 需求3</text>
+    </g>
+    
+    <!-- 切割模式 -->
+    <g transform="translate(50, 180)">
+      <text x="0" y="0" font-family="Microsoft YaHei" font-size="18" font-weight="bold">切割模式演化过程:</text>
+      
+      <!-- 初始模式 -->
+      <g transform="translate(0, 30)">
+        <text x="0" y="0" font-family="Microsoft YaHei" font-size="16" font-weight="bold">初始模式:</text>
+        
+        <!-- 模式1 -->
+        <g transform="translate(0, 25)">
+          <text x="0" y="0" font-family="Microsoft YaHei" font-size="14">模式1: (3,0)</text>
+          <rect x="100" y="-15" width="300" height="25" stroke="#000000" stroke-width="2" fill="#F0F0F0"/>
+          <rect x="100" y="-15" width="90" height="25" stroke="#000000" stroke-width="2" fill="#FFE6E6"/>
+          <rect x="190" y="-15" width="90" height="25" stroke="#000000" stroke-width="2" fill="#FFE6E6"/>
+          <rect x="280" y="-15" width="90" height="25" stroke="#000000" stroke-width="2" fill="#FFE6E6"/>
+          <rect x="370" y="-15" width="30" height="25" stroke="#000000" stroke-width="2" fill="#CCCCCC"/>
+          <text x="145" y="0" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">3</text>
+          <text x="235" y="0" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">3</text>
+          <text x="325" y="0" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">3</text>
+          <text x="385" y="0" text-anchor="middle" font-family="Microsoft YaHei" font-size="10">余1</text>
+        </g>
+        
+        <!-- 模式2 -->
+        <g transform="translate(0, 60)">
+          <text x="0" y="0" font-family="Microsoft YaHei" font-size="14">模式2: (0,2)</text>
+          <rect x="100" y="-15" width="300" height="25" stroke="#000000" stroke-width="2" fill="#F0F0F0"/>
+          <rect x="100" y="-15" width="150" height="25" stroke="#000000" stroke-width="2" fill="#E6F3FF"/>
+          <rect x="250" y="-15" width="150" height="25" stroke="#000000" stroke-width="2" fill="#E6F3FF"/>
+          <text x="175" y="0" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">5</text>
+          <text x="325" y="0" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">5</text>
+        </g>
+      </g>
+      
+      <!-- 列生成迭代 -->
+      <g transform="translate(0, 150)">
+        <text x="0" y="0" font-family="Microsoft YaHei" font-size="16" font-weight="bold">列生成发现的新模式:</text>
+        
+        <!-- 模式3 -->
+        <g transform="translate(0, 25)">
+          <text x="0" y="0" font-family="Microsoft YaHei" font-size="14">模式3: (1,1)</text>
+          <rect x="100" y="-15" width="300" height="25" stroke="#000000" stroke-width="2" fill="#F0F0F0"/>
+          <rect x="100" y="-15" width="90" height="25" stroke="#000000" stroke-width="2" fill="#FFE6E6"/>
+          <rect x="190" y="-15" width="150" height="25" stroke="#000000" stroke-width="2" fill="#E6F3FF"/>
+          <rect x="340" y="-15" width="60" height="25" stroke="#000000" stroke-width="2" fill="#CCCCCC"/>
+          <text x="145" y="0" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">3</text>
+          <text x="265" y="0" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">5</text>
+          <text x="370" y="0" text-anchor="middle" font-family="Microsoft YaHei" font-size="10">余2</text>
+        </g>
+        
+        <!-- 模式4 -->
+        <g transform="translate(0, 60)">
+          <text x="0" y="0" font-family="Microsoft YaHei" font-size="14">模式4: (2,0)</text>
+          <rect x="100" y="-15" width="300" height="25" stroke="#000000" stroke-width="2" fill="#F0F0F0"/>
+          <rect x="100" y="-15" width="90" height="25" stroke="#000000" stroke-width="2" fill="#FFE6E6"/>
+          <rect x="190" y="-15" width="90" height="25" stroke="#000000" stroke-width="2" fill="#FFE6E6"/>
+          <rect x="280" y="-15" width="120" height="25" stroke="#000000" stroke-width="2" fill="#CCCCCC"/>
+          <text x="145" y="0" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">3</text>
+          <text x="235" y="0" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">3</text>
+          <text x="340" y="0" text-anchor="middle" font-family="Microsoft YaHei" font-size="10">余4</text>
+        </g>
+      </g>
+    </g>
+    
+    <!-- 算法流程 -->
+    <g transform="translate(750, 180)">
+      <rect x="0" y="0" width="350" height="300" stroke="#000000" stroke-width="2" fill="#F9F9F9" rx="10"/>
+      <text x="175" y="25" text-anchor="middle" font-family="Microsoft YaHei" font-size="18" font-weight="bold">列生成算法流程</text>
+      
+      <!-- 步骤1 -->
+      <g transform="translate(20, 50)">
+        <circle cx="15" cy="15" r="12" stroke="#000000" stroke-width="2" fill="#FFE6E6"/>
+        <text x="15" y="20" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">1</text>
+        <text x="35" y="20" font-family="Microsoft YaHei" font-size="14">初始化：生成基本切割模式</text>
+        <text x="35" y="35" font-family="Microsoft YaHei" font-size="12" fill="#666666">模式1: (3,0), 模式2: (0,2)</text>
+      </g>
+      
+      <!-- 步骤2 -->
+      <g transform="translate(20, 90)">
+        <circle cx="15" cy="15" r="12" stroke="#000000" stroke-width="2" fill="#E6F3FF"/>
+        <text x="15" y="20" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">2</text>
+        <text x="35" y="20" font-family="Microsoft YaHei" font-size="14">求解主问题（RMP）</text>
+        <text x="35" y="35" font-family="Microsoft YaHei" font-size="12" fill="#666666">min Σ xⱼ, s.t. Σ aᵢⱼxⱼ ≥ dᵢ</text>
+        <text x="35" y="50" font-family="Microsoft YaHei" font-size="12" fill="#666666">得到对偶价格 π = (π₁, π₂)</text>
+      </g>
+      
+      <!-- 步骤3 -->
+      <g transform="translate(20, 150)">
+        <circle cx="15" cy="15" r="12" stroke="#000000" stroke-width="2" fill="#E6FFE6"/>
+        <text x="15" y="20" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">3</text>
+        <text x="35" y="20" font-family="Microsoft YaHei" font-size="14">求解子问题（定价问题）</text>
+        <text x="35" y="35" font-family="Microsoft YaHei" font-size="12" fill="#666666">max π₁a₁ + π₂a₂</text>
+        <text x="35" y="50" font-family="Microsoft YaHei" font-size="12" fill="#666666">s.t. 3a₁ + 5a₂ ≤ 10</text>
+      </g>
+      
+      <!-- 步骤4 -->
+      <g transform="translate(20, 210)">
+        <circle cx="15" cy="15" r="12" stroke="#000000" stroke-width="2" fill="#FFFFE6"/>
+        <text x="15" y="20" text-anchor="middle" font-family="Microsoft YaHei" font-size="12">4</text>
+        <text x="35" y="20" font-family="Microsoft YaHei" font-size="14">检查最优性条件</text>
+        <text x="35" y="35" font-family="Microsoft YaHei" font-size="12" fill="#666666">如果目标值 ≤ 1，停止</text>
+        <text x="35" y="50" font-family="Microsoft YaHei" font-size="12" fill="#666666">否则添加新模式，返回步骤2</text>
+      </g>
+    </g>
+    
+    <!-- 数值示例 -->
+    <g transform="translate(50, 520)">
+      <rect x="0" y="0" width="650" height="180" stroke="#FF6600" stroke-width="2" fill="#FFF8DC" rx="10"/>
+      <text x="325" y="25" text-anchor="middle" font-family="Microsoft YaHei" font-size="18" font-weight="bold">数值示例求解过程</text>
+      
+      <g transform="translate(20, 40)">
+        <text x="0" y="0" font-family="Microsoft YaHei" font-size="14" font-weight="bold">迭代1:</text>
+        <text x="0" y="20" font-family="Microsoft YaHei" font-size="12">主问题: min x₁ + x₂, s.t. 3x₁ ≥ 5, 2x₂ ≥ 3</text>
+        <text x="0" y="35" font-family="Microsoft YaHei" font-size="12">最优解: x₁ = 5/3, x₂ = 3/2, 对偶价格: π₁ = 1/3, π₂ = 1/2</text>
+        <text x="0" y="50" font-family="Microsoft YaHei" font-size="12">子问题: max (1/3)a₁ + (1/2)a₂, s.t. 3a₁ + 5a₂ ≤ 10</text>
+        <text x="0" y="65" font-family="Microsoft YaHei" font-size="12" fill="#009900">最优解: a₁ = 1, a₂ = 1, 目标值 = 5/6 > 0 → 添加新模式(1,1)</text>
+      </g>
+      
+      <g transform="translate(20, 110)">
+        <text x="0" y="0" font-family="Microsoft YaHei" font-size="14" font-weight="bold">迭代2:</text>
+        <text x="0" y="20" font-family="Microsoft YaHei" font-size="12">主问题包含3个模式，继续求解...</text>
+        <text x="0" y="35" font-family="Microsoft YaHei" font-size="12" fill="#FF6600">最终解: 使用模式(1,1) 3次，模式(0,2) 1.5次，总用料 = 4.5根</text>
+      </g>
+    </g>
+    
+  </g>
+</svg>

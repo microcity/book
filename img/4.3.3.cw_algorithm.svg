@@ -1,0 +1,116 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" overflow="hidden">
+  <g transform="translate(50 50)">
+    <!-- 标题 -->
+    <text x="500" y="30" text-anchor="middle" font-family="Microsoft YaHei" font-size="24" font-weight="bold">Clarke-Wright节约算法原理</text>
+    
+    <!-- 左侧：合并前 -->
+    <g transform="translate(0, 80)">
+      <text x="200" y="0" text-anchor="middle" font-family="Microsoft YaHei" font-size="20" font-weight="bold">合并前 (两条独立路径)</text>
+      
+      <!-- 配送中心 -->
+      <circle cx="200" cy="150" r="35" stroke="#000000" stroke-width="3" fill="#FFD700"/>
+      <text x="200" y="160" text-anchor="middle" font-family="Microsoft YaHei" font-size="20" font-weight="bold">0</text>
+      
+      <!-- 客户i -->
+      <rect x="70" y="280" width="50" height="50" stroke="#000000" stroke-width="3" fill="#E6F3FF"/>
+      <text x="95" y="310" text-anchor="middle" font-family="Microsoft YaHei" font-size="18" font-weight="bold">i</text>
+      
+      <!-- 客户j -->
+      <rect x="280" y="280" width="50" height="50" stroke="#000000" stroke-width="3" fill="#FFE6E6"/>
+      <text x="305" y="310" text-anchor="middle" font-family="Microsoft YaHei" font-size="18" font-weight="bold">j</text>
+      
+      <!-- 路径1: 0->i->0 -->
+      <line x1="200" y1="150" x2="95" y2="280" stroke="#FF0000" stroke-width="3" marker-end="url(#arrowhead-red)"/>
+      <text x="130" y="210" text-anchor="middle" font-family="Microsoft YaHei" font-size="16" fill="#FF0000">c₀ᵢ</text>
+      
+      <line x1="95" y1="280" x2="200" y2="150" stroke="#FF0000" stroke-width="3" marker-end="url(#arrowhead-red)" stroke-dasharray="8,4"/>
+      <text x="165" y="250" text-anchor="middle" font-family="Microsoft YaHei" font-size="16" fill="#FF0000">c₍ᵢ₀₎</text>
+      
+      <!-- 路径2: 0->j->0 -->
+      <line x1="200" y1="150" x2="305" y2="280" stroke="#0066FF" stroke-width="3" marker-end="url(#arrowhead-blue)"/>
+      <text x="270" y="210" text-anchor="middle" font-family="Microsoft YaHei" font-size="16" fill="#0066FF">c₀ⱼ</text>
+      
+      <line x1="305" y1="280" x2="200" y2="150" stroke="#0066FF" stroke-width="3" marker-end="url(#arrowhead-blue)" stroke-dasharray="8,4"/>
+      <text x="235" y="250" text-anchor="middle" font-family="Microsoft YaHei" font-size="16" fill="#0066FF">cⱼ₀</text>
+      
+      <!-- 总距离 -->
+      <text x="200" y="380" text-anchor="middle" font-family="Microsoft YaHei" font-size="18" font-weight="bold">总距离 = c₀ᵢ + cᵢ₀ + c₀ⱼ + cⱼ₀</text>
+      <text x="200" y="405" text-anchor="middle" font-family="Microsoft YaHei" font-size="16">(假设 cᵢ₀ = c₀ᵢ, cⱼ₀ = c₀ⱼ)</text>
+      <text x="200" y="430" text-anchor="middle" font-family="Microsoft YaHei" font-size="18" font-weight="bold">= 2(c₀ᵢ + c₀ⱼ)</text>
+    </g>
+    
+    <!-- 右侧：合并后 -->
+    <g transform="translate(500, 80)">
+      <text x="200" y="0" text-anchor="middle" font-family="Microsoft YaHei" font-size="20" font-weight="bold">合并后 (一条路径)</text>
+      
+      <!-- 配送中心 -->
+      <circle cx="200" cy="150" r="35" stroke="#000000" stroke-width="3" fill="#FFD700"/>
+      <text x="200" y="160" text-anchor="middle" font-family="Microsoft YaHei" font-size="20" font-weight="bold">0</text>
+      
+      <!-- 客户i -->
+      <rect x="70" y="280" width="50" height="50" stroke="#000000" stroke-width="3" fill="#E6F3FF"/>
+      <text x="95" y="310" text-anchor="middle" font-family="Microsoft YaHei" font-size="18" font-weight="bold">i</text>
+      
+      <!-- 客户j -->
+      <rect x="280" y="280" width="50" height="50" stroke="#000000" stroke-width="3" fill="#FFE6E6"/>
+      <text x="305" y="310" text-anchor="middle" font-family="Microsoft YaHei" font-size="18" font-weight="bold">j</text>
+      
+      <!-- 合并路径: 0->i->j->0 -->
+      <line x1="200" y1="150" x2="95" y2="280" stroke="#009900" stroke-width="4" marker-end="url(#arrowhead-green)"/>
+      <text x="130" y="210" text-anchor="middle" font-family="Microsoft YaHei" font-size="16" fill="#009900">c₀ᵢ</text>
+      
+      <line x1="95" y1="280" x2="305" y2="280" stroke="#009900" stroke-width="4" marker-end="url(#arrowhead-green)"/>
+      <text x="200" y="270" text-anchor="middle" font-family="Microsoft YaHei" font-size="16" fill="#009900">cᵢⱼ</text>
+      
+      <line x1="305" y1="280" x2="200" y2="150" stroke="#009900" stroke-width="4" marker-end="url(#arrowhead-green)"/>
+      <text x="270" y="210" text-anchor="middle" font-family="Microsoft YaHei" font-size="16" fill="#009900">cⱼ₀</text>
+      
+      <!-- 总距离 -->
+      <text x="200" y="380" text-anchor="middle" font-family="Microsoft YaHei" font-size="18" font-weight="bold">总距离 = c₀ᵢ + cᵢⱼ + cⱼ₀</text>
+      <text x="200" y="405" text-anchor="middle" font-family="Microsoft YaHei" font-size="16">(假设 cⱼ₀ = c₀ⱼ)</text>
+      <text x="200" y="430" text-anchor="middle" font-family="Microsoft YaHei" font-size="18" font-weight="bold">= c₀ᵢ + cᵢⱼ + c₀ⱼ</text>
+    </g>
+    
+    <!-- 节约值计算 -->
+    <g transform="translate(200, 550)">
+      <rect x="0" y="0" width="600" height="150" stroke="#000000" stroke-width="2" fill="#F0F8FF" rx="10"/>
+      <text x="300" y="30" text-anchor="middle" font-family="Microsoft YaHei" font-size="20" font-weight="bold">节约值计算</text>
+      
+      <text x="50" y="60" font-family="Microsoft YaHei" font-size="16">节约距离 = 合并前总距离 - 合并后总距离</text>
+      <text x="50" y="85" font-family="Microsoft YaHei" font-size="16">sᵢⱼ = 2(c₀ᵢ + c₀ⱼ) - (c₀ᵢ + cᵢⱼ + c₀ⱼ)</text>
+      <text x="50" y="110" font-family="Microsoft YaHei" font-size="18" font-weight="bold" fill="#FF6600">sᵢⱼ = c₀ᵢ + c₀ⱼ - cᵢⱼ</text>
+      <text x="50" y="135" font-family="Microsoft YaHei" font-size="16" fill="#666666">节约值越大，合并后的效果越好</text>
+    </g>
+    
+    <!-- 数值示例 -->
+    <g transform="translate(850, 150)">
+      <text x="0" y="0" font-family="Microsoft YaHei" font-size="18" font-weight="bold">数值示例:</text>
+      <text x="0" y="25" font-family="Microsoft YaHei" font-size="16">假设 c₀ᵢ = 5, c₀ⱼ = 4, cᵢⱼ = 3</text>
+      
+      <text x="0" y="60" font-family="Microsoft YaHei" font-size="16" fill="#FF0000">合并前:</text>
+      <text x="0" y="80" font-family="Microsoft YaHei" font-size="16">路径1: 0→i→0 (距离=10)</text>
+      <text x="0" y="100" font-family="Microsoft YaHei" font-size="16">路径2: 0→j→0 (距离=8)</text>
+      <text x="0" y="120" font-family="Microsoft YaHei" font-size="16" font-weight="bold">总距离 = 18</text>
+      
+      <text x="0" y="155" font-family="Microsoft YaHei" font-size="16" fill="#009900">合并后:</text>
+      <text x="0" y="175" font-family="Microsoft YaHei" font-size="16">路径: 0→i→j→0 (距离=12)</text>
+      <text x="0" y="195" font-family="Microsoft YaHei" font-size="16" font-weight="bold">总距离 = 12</text>
+      
+      <text x="0" y="230" font-family="Microsoft YaHei" font-size="18" font-weight="bold" fill="#FF6600">节约值 sᵢⱼ = 5+4-3 = 6</text>
+      <text x="0" y="255" font-family="Microsoft YaHei" font-size="16" fill="#FF6600">节约距离 = 18-12 = 6 ✓</text>
+    </g>
+    
+    <!-- 箭头标记定义 -->
+    <defs>
+      <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#FF0000"/>
+      </marker>
+      <marker id="arrowhead-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#0066FF"/>
+      </marker>
+      <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#009900"/>
+      </marker>
+    </defs>
+  </g>
+</svg>
