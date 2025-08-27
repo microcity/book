@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb" />
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#00000020"/>
+    </filter>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="20" font-weight="bold" fill="#1f2937">
+    Benders分解算法流程
+  </text>
+  
+  <!-- 原问题 -->
+  <rect x="50" y="60" width="200" height="80" rx="10" 
+        fill="#e0f2fe" stroke="#0277bd" stroke-width="2" filter="url(#shadow)"/>
+  <text x="150" y="85" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="14" font-weight="bold" fill="#0277bd">
+    原问题
+  </text>
+  <text x="150" y="105" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" fill="#01579b">
+    min c^T x + d^T y
+  </text>
+  <text x="150" y="125" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" fill="#01579b">
+    s.t. Ax + By ≤ b
+  </text>
+  
+  <!-- 分解箭头 -->
+  <line x1="250" y1="100" x2="320" y2="100" 
+        stroke="#4caf50" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="285" y="95" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" fill="#4caf50" font-weight="bold">
+    分解
+  </text>
+  
+  <!-- 主问题 -->
+  <rect x="350" y="60" width="180" height="80" rx="10" 
+        fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="440" y="85" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="14" font-weight="bold" fill="#7b1fa2">
+    主问题 (MP)
+  </text>
+  <text x="440" y="105" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" fill="#4a148c">
+    min c^T x + η
+  </text>
+  <text x="440" y="125" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" fill="#4a148c">
+    s.t. 割平面约束
+  </text>
+  
+  <!-- 子问题 -->
+  <rect x="570" y="60" width="180" height="80" rx="10" 
+        fill="#fff3e0" stroke="#f57c00" stroke-width="2" filter="url(#shadow)"/>
+  <text x="660" y="85" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="14" font-weight="bold" fill="#f57c00">
+    子问题 (SP)
+  </text>
+  <text x="660" y="105" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" fill="#e65100">
+    min d^T y
+  </text>
+  <text x="660" y="125" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" fill="#e65100">
+    s.t. By ≤ b - Ax^k
+  </text>
+  
+  <!-- 迭代循环 -->
+  <rect x="200" y="200" width="400" height="200" rx="15" 
+        fill="#fafafa" stroke="#616161" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="400" y="225" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="16" font-weight="bold" fill="#424242">
+    迭代过程
+  </text>
+  
+  <!-- 步骤1 -->
+  <circle cx="250" cy="270" r="25" fill="#2196f3" stroke="#1976d2" stroke-width="2"/>
+  <text x="250" y="275" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="14" font-weight="bold" fill="white">1</text>
+  <text x="320" y="275" font-family="Arial, sans-serif" font-size="12" fill="#424242">
+    求解主问题，得到 x^k
+  </text>
+  
+  <!-- 箭头1 -->
+  <line x1="275" y1="270" x2="320" y2="270" 
+        stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 步骤2 -->
+  <circle cx="400" cy="270" r="25" fill="#4caf50" stroke="#388e3c" stroke-width="2"/>
+  <text x="400" y="275" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="14" font-weight="bold" fill="white">2</text>
+  <text x="470" y="275" font-family="Arial, sans-serif" font-size="12" fill="#424242">
+    固定 x^k，求解子问题
+  </text>
+  
+  <!-- 箭头2 -->
+  <line x1="425" y1="270" x2="470" y2="270" 
+        stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 步骤3 -->
+  <circle cx="550" cy="270" r="25" fill="#ff9800" stroke="#f57c00" stroke-width="2"/>
+  <text x="550" y="275" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="14" font-weight="bold" fill="white">3</text>
+  <text x="480" y="295" font-family="Arial, sans-serif" font-size="12" fill="#424242">
+    生成割平面
+  </text>
+  
+  <!-- 步骤4 -->
+  <circle cx="400" cy="330" r="25" fill="#9c27b0" stroke="#7b1fa2" stroke-width="2"/>
+  <text x="400" y="335" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="14" font-weight="bold" fill="white">4</text>
+  <text x="330" y="355" font-family="Arial, sans-serif" font-size="12" fill="#424242">
+    检查收敛性
+  </text>
+  
+  <!-- 连接箭头 -->
+  <line x1="425" y1="270" x2="525" y2="270" 
+        stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="550" y1="295" x2="550" y2="320" 
+        stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="525" y1="330" x2="425" y2="330" 
+        stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="375" y1="330" x2="275" y2="330" 
+        stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="250" y1="305" x2="250" y2="295" 
+        stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 割平面说明 -->
+  <rect x="50" y="430" width="300" height="60" rx="8" 
+        fill="#fff8e1" stroke="#ffa000" stroke-width="1"/>
+  <text x="200" y="450" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" font-weight="bold" fill="#f57c00">
+    割平面类型
+  </text>
+  <text x="70" y="470" font-family="Arial, sans-serif" font-size="11" fill="#e65100">
+    • 最优性割平面：η ≥ d^T y* + π^T(b - Ax)
+  </text>
+  <text x="70" y="485" font-family="Arial, sans-serif" font-size="11" fill="#e65100">
+    • 可行性割平面：λ^T(b - Ax) ≥ 0
+  </text>
+  
+  <!-- 收敛说明 -->
+  <rect x="450" y="430" width="300" height="60" rx="8" 
+        fill="#e8f5e8" stroke="#4caf50" stroke-width="1"/>
+  <text x="600" y="450" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" font-weight="bold" fill="#388e3c">
+    收敛条件
+  </text>
+  <text x="470" y="470" font-family="Arial, sans-serif" font-size="11" fill="#2e7d32">
+    • 上界 - 下界 ≤ ε
+  </text>
+  <text x="470" y="485" font-family="Arial, sans-serif" font-size="11" fill="#2e7d32">
+    • 有限步收敛到最优解
+  </text>
+</svg>

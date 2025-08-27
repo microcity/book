@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="650" height="450" viewBox="0 0 650 450">
+  <!-- 背景 -->
+  <rect width="650" height="450" fill="#f8f9fa" stroke="none"/>
+  
+  <!-- 标题 -->
+  <text x="325" y="25" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#2c3e50">三地区两商品空间均衡网络</text>
+  
+  <!-- 地区节点 -->
+  <!-- 地区1 -->
+  <g transform="translate(150, 100)">
+    <circle cx="0" cy="0" r="40" fill="#3498db" stroke="#2980b9" stroke-width="3"/>
+    <text x="0" y="-5" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">地区1</text>
+    <text x="0" y="8" text-anchor="middle" font-family="Arial" font-size="10" fill="white">制造业中心</text>
+    
+    <!-- 商品价格显示 -->
+    <text x="0" y="-60" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#2c3e50">价格</text>
+    <text x="-15" y="-45" text-anchor="middle" font-family="Arial" font-size="10" fill="#e74c3c">商品A: 100</text>
+    <text x="15" y="-45" text-anchor="middle" font-family="Arial" font-size="10" fill="#27ae60">商品B: 80</text>
+  </g>
+  
+  <!-- 地区2 -->
+  <g transform="translate(500, 100)">
+    <circle cx="0" cy="0" r="40" fill="#e74c3c" stroke="#c0392b" stroke-width="3"/>
+    <text x="0" y="-5" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">地区2</text>
+    <text x="0" y="8" text-anchor="middle" font-family="Arial" font-size="10" fill="white">农业地区</text>
+    
+    <!-- 商品价格显示 -->
+    <text x="0" y="-60" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#2c3e50">价格</text>
+    <text x="-15" y="-45" text-anchor="middle" font-family="Arial" font-size="10" fill="#e74c3c">商品A: 120</text>
+    <text x="15" y="-45" text-anchor="middle" font-family="Arial" font-size="10" fill="#27ae60">商品B: 60</text>
+  </g>
+  
+  <!-- 地区3 -->
+  <g transform="translate(325, 300)">
+    <circle cx="0" cy="0" r="40" fill="#f39c12" stroke="#e67e22" stroke-width="3"/>
+    <text x="0" y="-5" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">地区3</text>
+    <text x="0" y="8" text-anchor="middle" font-family="Arial" font-size="10" fill="white">服务业中心</text>
+    
+    <!-- 商品价格显示 -->
+    <text x="0" y="65" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#2c3e50">价格</text>
+    <text x="-15" y="80" text-anchor="middle" font-family="Arial" font-size="10" fill="#e74c3c">商品A: 110</text>
+    <text x="15" y="80" text-anchor="middle" font-family="Arial" font-size="10" fill="#27ae60">商品B: 70</text>
+  </g>
+  
+  <!-- 贸易流箭头 -->
+  <!-- 地区1到地区2 -->
+  <!-- 商品A流量 -->
+  <g>
+    <defs>
+      <marker id="arrowA" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+        <polygon points="0,0 0,6 9,3" fill="#e74c3c"/>
+      </marker>
+    </defs>
+    <path d="M 185 80 Q 325 30 465 80" fill="none" stroke="#e74c3c" stroke-width="6" marker-end="url(#arrowA)"/>
+    <text x="325" y="45" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#e74c3c">商品A: 150单位</text>
+  </g>
+  
+  <!-- 商品B流量（反向） -->
+  <g>
+    <defs>
+      <marker id="arrowB" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+        <polygon points="0,0 0,6 9,3" fill="#27ae60"/>
+      </marker>
+    </defs>
+    <path d="M 465 120 Q 325 170 185 120" fill="none" stroke="#27ae60" stroke-width="4" marker-end="url(#arrowB)"/>
+    <text x="325" y="185" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#27ae60">商品B: 80单位</text>
+  </g>
+  
+  <!-- 地区1到地区3 -->
+  <!-- 商品A流量 -->
+  <g>
+    <path d="M 170 135 Q 200 200 295 275" fill="none" stroke="#e74c3c" stroke-width="4" marker-end="url(#arrowA)"/>
+    <text x="220" y="220" text-anchor="middle" font-family="Arial" font-size="10" fill="#e74c3c" transform="rotate(-45, 220, 220)">A: 60</text>
+  </g>
+  
+  <!-- 地区2到地区3 -->
+  <!-- 商品B流量 -->
+  <g>
+    <path d="M 480 135 Q 450 200 355 275" fill="none" stroke="#27ae60" stroke-width="5" marker-end="url(#arrowB)"/>
+    <text x="430" y="220" text-anchor="middle" font-family="Arial" font-size="10" fill="#27ae60" transform="rotate(45, 430, 220)">B: 100</text>
+  </g>
+  
+  <!-- 运输成本标注 -->
+  <g transform="translate(50, 380)">
+    <text x="0" y="0" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">运输成本：</text>
+    <text x="100" y="0" font-family="Arial" font-size="11" fill="#7f8c8d">地区1↔地区2: 15 (商品A), 18 (商品B)</text>
+    <text x="100" y="15" font-family="Arial" font-size="11" fill="#7f8c8d">地区1↔地区3: 12 (商品A), 15 (商品B)</text>
+    <text x="100" y="30" font-family="Arial" font-size="11" fill="#7f8c8d">地区2↔地区3: 10 (商品A), 12 (商品B)</text>
+  </g>
+  
+  <!-- 图例 -->
+  <g transform="translate(50, 50)">
+    <rect x="0" y="0" width="120" height="80" fill="white" stroke="#bdc3c7" stroke-width="1" rx="5"/>
+    <text x="60" y="15" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#2c3e50">图例</text>
+    
+    <line x1="10" y1="25" x2="30" y2="25" stroke="#e74c3c" stroke-width="4"/>
+    <text x="35" y="28" font-family="Arial" font-size="9" fill="#2c3e50">商品A流量</text>
+    
+    <line x1="10" y1="40" x2="30" y2="40" stroke="#27ae60" stroke-width="4"/>
+    <text x="35" y="43" font-family="Arial" font-size="9" fill="#2c3e50">商品B流量</text>
+    
+    <text x="10" y="58" font-family="Arial" font-size="9" fill="#7f8c8d">线条粗细∝流量大小</text>
+    <text x="10" y="70" font-family="Arial" font-size="9" fill="#7f8c8d">价格差=运输成本</text>
+  </g>
+  
+  <!-- 均衡条件说明 -->
+  <g transform="translate(480, 380)">
+    <text x="0" y="0" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">均衡条件验证：</text>
+    <text x="0" y="15" font-family="Arial" font-size="10" fill="#27ae60">✓ 商品A: P₂-P₁ = 120-100 = 20 ≥ 15 (运输成本)</text>
+    <text x="0" y="28" font-family="Arial" font-size="10" fill="#27ae60">✓ 商品B: P₁-P₂ = 80-60 = 20 ≥ 18 (运输成本)</text>
+    <text x="0" y="41" font-family="Arial" font-size="10" fill="#27ae60">✓ 各地区供需平衡</text>
+  </g>
+</svg>

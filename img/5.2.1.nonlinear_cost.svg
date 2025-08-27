@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="400" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="300" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">
+    非线性流量-时间关系 (BPR函数)
+  </text>
+  
+  <!-- Axes -->
+  <line x1="80" y1="350" x2="550" y2="350" stroke="#333" stroke-width="2"/>
+  <line x1="80" y1="350" x2="80" y2="80" stroke="#333" stroke-width="2"/>
+  
+  <!-- Arrow heads -->
+  <polygon points="550,350 540,345 540,355" fill="#333"/>
+  <polygon points="80,80 75,90 85,90" fill="#333"/>
+  
+  <!-- X-axis label -->
+  <text x="315" y="385" text-anchor="middle" font-size="14" fill="#333">流量 (veh/h)</text>
+  
+  <!-- Y-axis label -->
+  <text x="25" y="220" text-anchor="middle" font-size="14" fill="#333" transform="rotate(-90, 25, 220)">出行时间 (min)</text>
+  
+  <!-- X-axis tick marks and labels -->
+  <g font-size="12" fill="#666">
+    <line x1="80" y1="350" x2="80" y2="355" stroke="#666"/>
+    <text x="80" y="370" text-anchor="middle">0</text>
+    
+    <line x1="180" y1="350" x2="180" y2="355" stroke="#666"/>
+    <text x="180" y="370" text-anchor="middle">500</text>
+    
+    <line x1="280" y1="350" x2="280" y2="355" stroke="#666"/>
+    <text x="280" y="370" text-anchor="middle">1000</text>
+    
+    <line x1="380" y1="350" x2="380" y2="355" stroke="#666"/>
+    <text x="380" y="370" text-anchor="middle">1500</text>
+    
+    <line x1="480" y1="350" x2="480" y2="355" stroke="#666"/>
+    <text x="480" y="370" text-anchor="middle">2000</text>
+  </g>
+  
+  <!-- Y-axis tick marks and labels -->
+  <g font-size="12" fill="#666">
+    <line x1="75" y1="350" x2="80" y2="350" stroke="#666"/>
+    <text x="70" y="355" text-anchor="end">0</text>
+    
+    <line x1="75" y1="310" x2="80" y2="310" stroke="#666"/>
+    <text x="70" y="315" text-anchor="end">5</text>
+    
+    <line x1="75" y1="270" x2="80" y2="270" stroke="#666"/>
+    <text x="70" y="275" text-anchor="end">10</text>
+    
+    <line x1="75" y1="230" x2="80" y2="230" stroke="#666"/>
+    <text x="70" y="235" text-anchor="end">15</text>
+    
+    <line x1="75" y1="190" x2="80" y2="190" stroke="#666"/>
+    <text x="70" y="195" text-anchor="end">20</text>
+    
+    <line x1="75" y1="150" x2="80" y2="150" stroke="#666"/>
+    <text x="70" y="155" text-anchor="end">25</text>
+    
+    <line x1="75" y1="110" x2="80" y2="110" stroke="#666"/>
+    <text x="70" y="115" text-anchor="end">30</text>
+  </g>
+  
+  <!-- BPR curve: t = t0[1 + α(f/C)^β] where t0=8, α=0.15, β=4, C=1500 -->
+  <path d="M 80,320 
+           Q 120,318 160,315 
+           Q 200,310 240,305 
+           Q 280,295 320,280 
+           Q 360,260 400,230 
+           Q 440,190 480,140" 
+        stroke="#e74c3c" stroke-width="3" fill="none"/>
+  
+  <!-- Free flow time line -->
+  <line x1="80" y1="320" x2="480" y2="320" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="490" y="325" font-size="12" fill="#3498db">自由流时间 t₀</text>
+  
+  <!-- Capacity line -->
+  <line x1="380" y1="350" x2="380" y2="80" stroke="#95a5a6" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="385" y="100" font-size="12" fill="#95a5a6">容量 C</text>
+  
+  <!-- Curve label -->
+  <text x="450" y="170" font-size="14" fill="#e74c3c" font-weight="bold">BPR函数</text>
+  
+  <!-- Formula -->
+  <text x="100" y="120" font-size="12" fill="#333">
+    t(f) = t₀[1 + α(f/C)^β]
+  </text>
+  <text x="100" y="140" font-size="11" fill="#666">
+    其中: α = 0.15, β = 4
+  </text>
+  
+  <!-- Congestion region annotation -->
+  <text x="400" y="250" font-size="11" fill="#e74c3c">拥堵区域</text>
+  <path d="M 420,240 Q 430,220 440,200" stroke="#e74c3c" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"/>
+    </marker>
+  </defs>
+</svg>

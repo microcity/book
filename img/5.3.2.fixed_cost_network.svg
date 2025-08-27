@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="550" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+    <marker id="arrowhead-selected" markerWidth="10" markerHeight="7" 
+            refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d32f2f" />
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#00000020"/>
+    </filter>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="350" y="25" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="18" font-weight="bold" fill="#1f2937">
+    固定成本网络流问题示例
+  </text>
+  
+  <!-- 节点 -->
+  <!-- 供应节点 -->
+  <circle cx="100" cy="150" r="25" fill="#c8e6c9" stroke="#4caf50" stroke-width="3" filter="url(#shadow)"/>
+  <text x="100" y="155" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="14" font-weight="bold" fill="#2e7d32">1</text>
+  <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" fill="#388e3c">供应: +100</text>
+  
+  <circle cx="100" cy="350" r="25" fill="#c8e6c9" stroke="#4caf50" stroke-width="3" filter="url(#shadow)"/>
+  <text x="100" y="355" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="14" font-weight="bold" fill="#2e7d32">2</text>
+  <text x="100" y="390" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" fill="#388e3c">供应: +80</text>
+  
+  <!-- 中转节点 -->
+  <circle cx="350" cy="200" r="25" fill="#fff3e0" stroke="#ff9800" stroke-width="3" filter="url(#shadow)"/>
+  <text x="350" y="205" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="14" font-weight="bold" fill="#f57c00">3</text>
+  <text x="350" y="240" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" fill="#ef6c00">中转: 0</text>
+  
+  <circle cx="350" cy="300" r="25" fill="#fff3e0" stroke="#ff9800" stroke-width="3" filter="url(#shadow)"/>
+  <text x="350" y="305" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="14" font-weight="bold" fill="#f57c00">4</text>
+  <text x="350" y="340" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" fill="#ef6c00">中转: 0</text>
+  
+  <!-- 需求节点 -->
+  <circle cx="600" cy="250" r="25" fill="#ffcdd2" stroke="#f44336" stroke-width="3" filter="url(#shadow)"/>
+  <text x="600" y="255" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="14" font-weight="bold" fill="#c62828">5</text>
+  <text x="600" y="290" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" fill="#d32f2f">需求: -180</text>
+  
+  <!-- 边 - 选中的边用实线，未选中的用虚线 -->
+  
+  <!-- 1→3 (选中) -->
+  <line x1="125" y1="150" x2="325" y2="200" 
+        stroke="#d32f2f" stroke-width="4" marker-end="url(#arrowhead-selected)"/>
+  <rect x="200" y="165" width="70" height="30" rx="5" fill="white" stroke="#d32f2f" stroke-width="1"/>
+  <text x="235" y="177" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="10" font-weight="bold" fill="#d32f2f">F=30, c=2</text>
+  <text x="235" y="188" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="9" fill="#d32f2f">流量: 100</text>
+  
+  <!-- 1→4 (未选中) -->
+  <line x1="125" y1="150" x2="325" y2="300" 
+        stroke="#999" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowhead)"/>
+  <rect x="200" y="210" width="70" height="25" rx="5" fill="#f5f5f5" stroke="#999" stroke-width="1"/>
+  <text x="235" y="222" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="10" fill="#666">F=50, c=3</text>
+  <text x="235" y="232" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="9" fill="#666">未使用</text>
+  
+  <!-- 2→3 (未选中) -->
+  <line x1="125" y1="350" x2="325" y2="200" 
+        stroke="#999" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowhead)"/>
+  <rect x="200" y="260" width="70" height="25" rx="5" fill="#f5f5f5" stroke="#999" stroke-width="1"/>
+  <text x="235" y="272" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="10" fill="#666">F=40, c=1</text>
+  <text x="235" y="282" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="9" fill="#666">未使用</text>
+  
+  <!-- 2→4 (选中) -->
+  <line x1="125" y1="350" x2="325" y2="300" 
+        stroke="#d32f2f" stroke-width="4" marker-end="url(#arrowhead-selected)"/>
+  <rect x="200" y="315" width="70" height="30" rx="5" fill="white" stroke="#d32f2f" stroke-width="1"/>
+  <text x="235" y="327" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="10" font-weight="bold" fill="#d32f2f">F=35, c=2</text>
+  <text x="235" y="338" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="9" fill="#d32f2f">流量: 80</text>
+  
+  <!-- 3→5 (选中) -->
+  <line x1="375" y1="200" x2="575" y2="250" 
+        stroke="#d32f2f" stroke-width="4" marker-end="url(#arrowhead-selected)"/>
+  <rect x="450" y="215" width="70" height="30" rx="5" fill="white" stroke="#d32f2f" stroke-width="1"/>
+  <text x="485" y="227" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="10" font-weight="bold" fill="#d32f2f">F=25, c=1</text>
+  <text x="485" y="238" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="9" fill="#d32f2f">流量: 100</text>
+  
+  <!-- 4→5 (选中) -->
+  <line x1="375" y1="300" x2="575" y2="250" 
+        stroke="#d32f2f" stroke-width="4" marker-end="url(#arrowhead-selected)"/>
+  <rect x="450" y="265" width="70" height="30" rx="5" fill="white" stroke="#d32f2f" stroke-width="1"/>
+  <text x="485" y="277" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="10" font-weight="bold" fill="#d32f2f">F=20, c=3</text>
+  <text x="485" y="288" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="9" fill="#d32f2f">流量: 80</text>
+  
+  <!-- 3→4 (未选中) -->
+  <line x1="350" y1="225" x2="350" y2="275" 
+        stroke="#999" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowhead)"/>
+  <rect x="355" y="245" width="65" height="25" rx="5" fill="#f5f5f5" stroke="#999" stroke-width="1"/>
+  <text x="387" y="257" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="10" fill="#666">F=15, c=1</text>
+  <text x="387" y="267" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="9" fill="#666">未使用</text>
+  
+  <!-- 图例 -->
+  <rect x="50" y="450" width="600" height="80" rx="10" 
+        fill="#fafafa" stroke="#ccc" stroke-width="1"/>
+  <text x="350" y="475" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="14" font-weight="bold" fill="#333">
+    图例说明
+  </text>
+  
+  <!-- 选中边图例 -->
+  <line x1="80" y1="490" x2="120" y2="490" 
+        stroke="#d32f2f" stroke-width="4" marker-end="url(#arrowhead-selected)"/>
+  <text x="130" y="495" font-family="Arial, sans-serif" font-size="12" fill="#333">
+    选中的边 (u_ij = 1)：承担流量，产生固定成本和变动成本
+  </text>
+  
+  <!-- 未选中边图例 -->
+  <line x1="80" y1="510" x2="120" y2="510" 
+        stroke="#999" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowhead)"/>
+  <text x="130" y="515" font-family="Arial, sans-serif" font-size="12" fill="#333">
+    未选中的边 (u_ij = 0)：不承担流量，无成本
+  </text>
+  
+  <!-- 成本信息 -->
+  <rect x="450" y="380" width="200" height="60" rx="8" 
+        fill="#fff8e1" stroke="#ffa000" stroke-width="1"/>
+  <text x="550" y="400" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" font-weight="bold" fill="#f57c00">
+    总成本计算
+  </text>
+  <text x="460" y="415" font-family="Arial, sans-serif" font-size="11" fill="#e65100">
+    固定成本: 30+35+25+20 = 110
+  </text>
+  <text x="460" y="428" font-family="Arial, sans-serif" font-size="11" fill="#e65100">
+    变动成本: 2×100+2×80+1×100+3×80 = 740
+  </text>
+  <text x="460" y="441" font-family="Arial, sans-serif" font-size="11" fill="#e65100">
+    总成本: 110 + 740 = 850
+  </text>
+  
+  <!-- 问题参数说明 -->
+  <rect x="50" y="380" width="200" height="60" rx="8" 
+        fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <text x="150" y="400" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" font-weight="bold" fill="#1976d2">
+    符号说明
+  </text>
+  <text x="60" y="415" font-family="Arial, sans-serif" font-size="11" fill="#0d47a1">
+    F: 固定成本, c: 单位变动成本
+  </text>
+  <text x="60" y="428" font-family="Arial, sans-serif" font-size="11" fill="#0d47a1">
+    u_ij ∈ {0,1}: 边选择变量
+  </text>
+  <text x="60" y="441" font-family="Arial, sans-serif" font-size="11" fill="#0d47a1">
+    f_ij ≥ 0: 边流量变量
+  </text>
+  
+  <!-- 约束说明 -->
+  <rect x="270" y="380" width="160" height="60" rx="8" 
+        fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1"/>
+  <text x="350" y="400" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="12" font-weight="bold" fill="#7b1fa2">
+    关键约束
+  </text>
+  <text x="280" y="415" font-family="Arial, sans-serif" font-size="11" fill="#4a148c">
+    f_ij ≤ M_ij × u_ij
+  </text>
+  <text x="280" y="428" font-family="Arial, sans-serif" font-size="11" fill="#4a148c">
+    流量平衡约束
+  </text>
+  <text x="280" y="441" font-family="Arial, sans-serif" font-size="11" fill="#4a148c">
+    非负性约束
+  </text>
+</svg>

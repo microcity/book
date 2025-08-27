@@ -1,0 +1,115 @@
+<svg width="1600" height="800" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" overflow="hidden">
+  <g transform="translate(-50 -50)">
+    <!-- 原网络部分 -->
+    <text x="300" y="80" font-family="Microsoft YaHei,sans-serif" font-weight="bold" font-size="28" fill="#000000" text-anchor="middle">原网络（当前流量分配）</text>
+    
+    <!-- 原网络节点 -->
+    <circle cx="150" cy="150" r="35" stroke="#000000" stroke-width="3" fill="#90EE90" />
+    <text x="140" y="160" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="24">S</text>
+    
+    <circle cx="300" cy="120" r="35" stroke="#000000" stroke-width="3" fill="#FFE4B5" />
+    <text x="290" y="130" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="24">A</text>
+    
+    <circle cx="300" cy="180" r="35" stroke="#000000" stroke-width="3" fill="#FFE4B5" />
+    <text x="290" y="190" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="24">B</text>
+    
+    <circle cx="450" cy="150" r="35" stroke="#000000" stroke-width="3" fill="#FFB6C1" />
+    <text x="440" y="160" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="24">T</text>
+    
+    <!-- 原网络边和流量 -->
+    <path d="M 185 140 L 265 125" stroke="#000000" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+    <text x="210" y="115" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#000080">8/10 (c:2)</text>
+    
+    <path d="M 185 160 L 265 175" stroke="#000000" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+    <text x="210" y="190" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#000080">2/8 (c:3)</text>
+    
+    <path d="M 335 130 L 415 145" stroke="#000000" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+    <text x="360" y="125" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#000080">5/6 (c:1)</text>
+    
+    <path d="M 335 170 L 415 155" stroke="#000000" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+    <text x="360" y="185" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#000080">5/7 (c:4)</text>
+    
+    <path d="M 300 145 L 300 155" stroke="#000000" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+    <text x="310" y="155" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#000080">3/5 (c:1)</text>
+    
+    <!-- 残余网络部分 -->
+    <text x="300" y="350" font-family="Microsoft YaHei,sans-serif" font-weight="bold" font-size="28" fill="#000000" text-anchor="middle">残余网络</text>
+    
+    <!-- 残余网络节点 -->
+    <circle cx="150" cy="420" r="35" stroke="#000000" stroke-width="3" fill="#90EE90" />
+    <text x="140" y="430" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="24">S</text>
+    
+    <circle cx="300" cy="390" r="35" stroke="#000000" stroke-width="3" fill="#FFE4B5" />
+    <text x="290" y="400" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="24">A</text>
+    
+    <circle cx="300" cy="450" r="35" stroke="#000000" stroke-width="3" fill="#FFE4B5" />
+    <text x="290" y="460" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="24">B</text>
+    
+    <circle cx="450" cy="420" r="35" stroke="#000000" stroke-width="3" fill="#FFB6C1" />
+    <text x="440" y="430" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="24">T</text>
+    
+    <!-- 残余网络边 -->
+    <!-- 正向边 (剩余容量) -->
+    <path d="M 185 410 L 265 395" stroke="#0000FF" stroke-width="2" fill="none" marker-end="url(#arrowhead_blue)" />
+    <text x="210" y="385" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#0000FF">2 (c:2)</text>
+    
+    <path d="M 185 430 L 265 445" stroke="#0000FF" stroke-width="2" fill="none" marker-end="url(#arrowhead_blue)" />
+    <text x="210" y="460" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#0000FF">6 (c:3)</text>
+    
+    <path d="M 335 400 L 415 415" stroke="#0000FF" stroke-width="2" fill="none" marker-end="url(#arrowhead_blue)" />
+    <text x="360" y="395" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#0000FF">1 (c:1)</text>
+    
+    <path d="M 335 440 L 415 425" stroke="#0000FF" stroke-width="2" fill="none" marker-end="url(#arrowhead_blue)" />
+    <text x="360" y="455" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#0000FF">2 (c:4)</text>
+    
+    <path d="M 300 415 L 300 425" stroke="#0000FF" stroke-width="2" fill="none" marker-end="url(#arrowhead_blue)" />
+    <text x="310" y="425" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#0000FF">2 (c:1)</text>
+    
+    <!-- 反向边 (已用流量) -->
+    <path d="M 265 405 L 185 420" stroke="#FF0000" stroke-width="2" fill="none" marker-end="url(#arrowhead_red)" stroke-dasharray="5,5" />
+    <text x="210" y="420" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#FF0000">8 (c:-2)</text>
+    
+    <path d="M 265 455 L 185 440" stroke="#FF0000" stroke-width="2" fill="none" marker-end="url(#arrowhead_red)" stroke-dasharray="5,5" />
+    <text x="210" y="435" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#FF0000">2 (c:-3)</text>
+    
+    <path d="M 415 405 L 335 390" stroke="#FF0000" stroke-width="2" fill="none" marker-end="url(#arrowhead_red)" stroke-dasharray="5,5" />
+    <text x="360" y="380" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#FF0000">5 (c:-1)</text>
+    
+    <path d="M 415 435 L 335 450" stroke="#FF0000" stroke-width="2" fill="none" marker-end="url(#arrowhead_red)" stroke-dasharray="5,5" />
+    <text x="360" y="470" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#FF0000">5 (c:-4)</text>
+    
+    <path d="M 300 435 L 300 425" stroke="#FF0000" stroke-width="2" fill="none" marker-end="url(#arrowhead_red)" stroke-dasharray="5,5" />
+    <text x="240" y="440" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="16" fill="#FF0000">3 (c:-1)</text>
+    
+    <!-- 定义箭头标记 -->
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#000000" />
+      </marker>
+      <marker id="arrowhead_blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#0000FF" />
+      </marker>
+      <marker id="arrowhead_red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#FF0000" />
+      </marker>
+    </defs>
+    
+    <!-- 图例 -->
+    <g transform="translate(600, 350)">
+      <text x="0" y="0" font-family="Microsoft YaHei,sans-serif" font-weight="bold" font-size="24" fill="#000000">图例:</text>
+      
+      <text x="0" y="30" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="18" fill="#000000">原网络标注: 流量/容量 (成本)</text>
+      
+      <path d="M 0 50 L 60 50" stroke="#0000FF" stroke-width="2" fill="none" marker-end="url(#arrowhead_blue)" />
+      <text x="70" y="55" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="18" fill="#0000FF">正向边（剩余容量）</text>
+      
+      <path d="M 0 80 L 60 80" stroke="#FF0000" stroke-width="2" fill="none" marker-end="url(#arrowhead_red)" stroke-dasharray="5,5" />
+      <text x="70" y="85" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="18" fill="#FF0000">反向边（可撤销流量）</text>
+      
+      <text x="0" y="110" font-family="Microsoft YaHei,sans-serif" font-weight="400" font-size="18" fill="#000000">残余网络标注: 容量 (成本)</text>
+    </g>
+    
+    <!-- 标题 -->
+    <text x="700" y="80" font-family="Microsoft YaHei,sans-serif" font-weight="bold" font-size="32" fill="#000000" text-anchor="middle">残余网络构造示例</text>
+  </g>
+</svg>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="500" viewBox="0 0 700 500">
+  <!-- 背景 -->
+  <rect width="700" height="500" fill="#f8f9fa" stroke="none"/>
+  
+  <!-- 标题 -->
+  <text x="350" y="25" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#2c3e50">动态价格调整过程与相位图</text>
+  
+  <!-- 左侧：价格时间序列图 -->
+  <g transform="translate(50, 50)">
+    <text x="150" y="20" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#34495e">价格动态调整轨迹</text>
+    
+    <!-- 坐标轴 -->
+    <line x1="30" y1="280" x2="270" y2="280" stroke="#34495e" stroke-width="2"/>
+    <line x1="30" y1="280" x2="30" y2="50" stroke="#34495e" stroke-width="2"/>
+    
+    <!-- 轴标签 -->
+    <text x="150" y="300" text-anchor="middle" font-family="Arial" font-size="11" fill="#34495e">时间 t</text>
+    <text x="15" y="165" text-anchor="middle" font-family="Arial" font-size="11" fill="#34495e" transform="rotate(-90, 15, 165)">价格</text>
+    
+    <!-- 刻度 -->
+    <line x1="30" y1="280" x2="30" y2="285" stroke="#34495e"/>
+    <text x="30" y="295" text-anchor="middle" font-family="Arial" font-size="9" fill="#7f8c8d">0</text>
+    <line x1="90" y1="280" x2="90" y2="285" stroke="#34495e"/>
+    <text x="90" y="295" text-anchor="middle" font-family="Arial" font-size="9" fill="#7f8c8d">5</text>
+    <line x1="150" y1="280" x2="150" y2="285" stroke="#34495e"/>
+    <text x="150" y="295" text-anchor="middle" font-family="Arial" font-size="9" fill="#7f8c8d">10</text>
+    <line x1="210" y1="280" x2="210" y2="285" stroke="#34495e"/>
+    <text x="210" y="295" text-anchor="middle" font-family="Arial" font-size="9" fill="#7f8c8d">15</text>
+    <line x1="270" y1="280" x2="270" y2="285" stroke="#34495e"/>
+    <text x="270" y="295" text-anchor="middle" font-family="Arial" font-size="9" fill="#7f8c8d">20</text>
+    
+    <!-- 地区1价格曲线 -->
+    <polyline points="30,200 42,190 54,182 66,176 78,172 90,169 102,167 114,166 126,165 138,164 150,164 162,163 174,163 186,163 198,163 210,163 222,163 234,163 246,163 258,163 270,163" 
+              fill="none" stroke="#3498db" stroke-width="3"/>
+    
+    <!-- 地区2价格曲线 -->
+    <polyline points="30,120 42,130 54,138 66,144 78,148 90,151 102,153 114,154 126,155 138,156 150,156 162,157 174,157 186,157 198,157 210,157 222,157 234,157 246,157 258,157 270,157" 
+              fill="none" stroke="#e74c3c" stroke-width="3"/>
+    
+    <!-- 均衡价格线 -->
+    <line x1="30" y1="160" x2="270" y2="160" stroke="#95a5a6" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="275" y="163" font-family="Arial" font-size="10" fill="#95a5a6">均衡价格</text>
+    
+    <!-- 图例 -->
+    <rect x="180" y="70" width="80" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="3"/>
+    <line x1="185" y1="85" x2="205" y2="85" stroke="#3498db" stroke-width="3"/>
+    <text x="210" y="88" font-family="Arial" font-size="9" fill="#2c3e50">地区1</text>
+    <line x1="185" y1="100" x2="205" y2="100" stroke="#e74c3c" stroke-width="3"/>
+    <text x="210" y="103" font-family="Arial" font-size="9" fill="#2c3e50">地区2</text>
+  </g>
+  
+  <!-- 右侧：相位图 -->
+  <g transform="translate(380, 50)">
+    <text x="150" y="20" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#34495e">相位图 (p₁, p₂)</text>
+    
+    <!-- 坐标轴 -->
+    <line x1="30" y1="280" x2="270" y2="280" stroke="#34495e" stroke-width="2"/>
+    <line x1="30" y1="280" x2="30" y2="50" stroke="#34495e" stroke-width="2"/>
+    
+    <!-- 轴标签 -->
+    <text x="150" y="300" text-anchor="middle" font-family="Arial" font-size="11" fill="#34495e">地区1价格 p₁</text>
+    <text x="15" y="165" text-anchor="middle" font-family="Arial" font-size="11" fill="#34495e" transform="rotate(-90, 15, 165)">地区2价格 p₂</text>
+    
+    <!-- 等倾斜线 -->
+    <g opacity="0.3">
+      <line x1="50" y1="260" x2="250" y2="60" stroke="#9b59b6" stroke-width="1"/>
+      <line x1="70" y1="260" x2="270" y2="80" stroke="#9b59b6" stroke-width="1"/>
+      <line x1="30" y1="240" x2="230" y2="60" stroke="#9b59b6" stroke-width="1"/>
+      <line x1="30" y1="220" x2="210" y2="60" stroke="#9b59b6" stroke-width="1"/>
+    </g>
+    
+    <!-- 轨迹线 -->
+    <path d="M 80 120 Q 100 140 120 160 Q 140 180 160 190 Q 180 195 200 198 Q 220 200 240 201 Q 250 201 260 201" 
+          fill="none" stroke="#f39c12" stroke-width="4" stroke-dasharray="none"/>
+    
+    <!-- 轨迹方向箭头 -->
+    <defs>
+      <marker id="arrowPhase" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+        <polygon points="0,0 0,6 7,3" fill="#f39c12"/>
+      </marker>
+    </defs>
+    <circle cx="80" cy="120" r="4" fill="#e67e22"/>
+    <text x="75" y="110" text-anchor="middle" font-family="Arial" font-size="9" fill="#e67e22">初始点</text>
+    
+    <path d="M 120 160 Q 130 165 140 170" fill="none" stroke="#f39c12" stroke-width="3" marker-end="url(#arrowPhase)"/>
+    <path d="M 180 195 Q 190 197 200 198" fill="none" stroke="#f39c12" stroke-width="3" marker-end="url(#arrowPhase)"/>
+    
+    <!-- 均衡点 -->
+    <circle cx="160" cy="160" r="5" fill="#27ae60" stroke="#2ecc71" stroke-width="2"/>
+    <text x="165" y="175" font-family="Arial" font-size="10" fill="#27ae60">均衡点</text>
+    <text x="165" y="185" font-family="Arial" font-size="9" fill="#27ae60">(p₁*, p₂*)</text>
+    
+    <!-- 稳定性区域 -->
+    <circle cx="160" cy="160" r="80" fill="none" stroke="#2ecc71" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+    <text x="110" y="100" font-family="Arial" font-size="9" fill="#27ae60">稳定区域</text>
+  </g>
+  
+  <!-- 底部：向量场示意 -->
+  <g transform="translate(50, 350)">
+    <text x="300" y="20" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#34495e">价格调整向量场</text>
+    
+    <rect x="0" y="30" width="600" height="100" fill="white" stroke="#bdc3c7" stroke-width="1" rx="5"/>
+    
+    <!-- 向量场网格 -->
+    <g transform="translate(50, 60)">
+      <!-- 超额需求为正时的向量 -->
+      <g fill="#e74c3c">
+        <line x1="0" y1="20" x2="15" y2="20" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow1)"/>
+        <text x="20" y="24" font-family="Arial" font-size="9">超额需求 > 0</text>
+        <text x="20" y="34" font-family="Arial" font-size="8" fill="#7f8c8d">价格上涨</text>
+      </g>
+      
+      <!-- 超额需求为负时的向量 -->
+      <g fill="#3498db" transform="translate(0, 20)">
+        <line x1="15" y1="20" x2="0" y2="20" stroke="#3498db" stroke-width="2" marker-end="url(#arrow2)"/>
+        <text x="20" y="24" font-family="Arial" font-size="9">超额需求 < 0</text>
+        <text x="20" y="34" font-family="Arial" font-size="8" fill="#7f8c8d">价格下跌</text>
+      </g>
+      
+      <!-- 均衡点 -->
+      <g transform="translate(200, 20)">
+        <circle cx="7" cy="20" r="4" fill="#27ae60"/>
+        <text x="15" y="24" font-family="Arial" font-size="9">超额需求 = 0</text>
+        <text x="15" y="34" font-family="Arial" font-size="8" fill="#7f8c8d">价格稳定</text>
+      </g>
+      
+      <!-- 调整机制说明 -->
+      <g transform="translate(350, 10)">
+        <text x="0" y="15" font-family="Arial" font-size="11" font-weight="bold" fill="#2c3e50">Walras调整机制：</text>
+        <text x="0" y="30" font-family="Arial" font-size="10" fill="#34495e">dp₍/dt = λᵢ × [Dᵢ(p) - Sᵢ(p) + 流入 - 流出]</text>
+        <text x="0" y="45" font-family="Arial" font-size="9" fill="#7f8c8d">λᵢ > 0 为调整速度参数</text>
+      </g>
+    </g>
+    
+    <!-- 箭头定义 -->
+    <defs>
+      <marker id="arrow1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <polygon points="0,0 0,6 5,3" fill="#e74c3c"/>
+      </marker>
+      <marker id="arrow2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <polygon points="0,0 0,6 5,3" fill="#3498db"/>
+      </marker>
+    </defs>
+  </g>
+  
+  <!-- 收敛性质说明 -->
+  <g transform="translate(400, 330)">
+    <rect x="0" y="0" width="250" height="60" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1" rx="5"/>
+    <text x="125" y="15" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#2c3e50">收敛性质</text>
+    <text x="10" y="30" font-family="Arial" font-size="10" fill="#27ae60">✓ 全局渐近稳定（在单调条件下）</text>
+    <text x="10" y="42" font-family="Arial" font-size="10" fill="#27ae60">✓ 收敛率依赖于调整速度参数</text>
+    <text x="10" y="54" font-family="Arial" font-size="10" fill="#27ae60">✓ 唯一均衡点（在严格单调条件下）</text>
+  </g>
+</svg>
