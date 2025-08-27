@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'SimHei', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #2c3e50; }
+      .subtitle { font-family: 'SimHei', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #34495e; }
+      .label { font-family: 'SimHei', Arial, sans-serif; font-size: 12px; fill: #34495e; }
+      .small-label { font-family: 'SimHei', Arial, sans-serif; font-size: 10px; fill: #7f8c8d; }
+      .formula { font-family: 'Times New Roman', serif; font-size: 11px; fill: #2c3e50; }
+      .policy-box { fill: #3498db; stroke: #2980b9; stroke-width: 2; }
+      .value-box { fill: #e74c3c; stroke: #c0392b; stroke-width: 2; }
+      .update-arrow { stroke: #f39c12; stroke-width: 2; marker-end: url(#update-arrow-head); }
+      .grid-line { stroke: #ecf0f1; stroke-width: 1; }
+      .convergence-line { stroke: #27ae60; stroke-width: 2; fill: none; }
+      .actor-line { stroke: #3498db; stroke-width: 2; fill: none; }
+      .critic-line { stroke: #e74c3c; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="update-arrow-head" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f39c12"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="300" y="25" class="title" text-anchor="middle">演员-评论员算法架构</text>
+  
+  <!-- Main Architecture -->
+  <g transform="translate(50, 50)">
+    <!-- Actor Network -->
+    <rect x="50" y="50" width="120" height="80" rx="5" class="policy-box"/>
+    <text x="110" y="75" class="label" text-anchor="middle">演员网络</text>
+    <text x="110" y="90" class="small-label" text-anchor="middle">(Actor)</text>
+    <text x="110" y="105" class="formula" text-anchor="middle">π(a|s; θ)</text>
+    <text x="110" y="120" class="small-label" text-anchor="middle">策略参数 θ</text>
+    
+    <!-- Critic Network -->
+    <rect x="330" y="50" width="120" height="80" rx="5" class="value-box"/>
+    <text x="390" y="75" class="label" text-anchor="middle">评论员网络</text>
+    <text x="390" y="90" class="small-label" text-anchor="middle">(Critic)</text>
+    <text x="390" y="105" class="formula" text-anchor="middle">V(s; w)</text>
+    <text x="390" y="120" class="small-label" text-anchor="middle">价值参数 w</text>
+    
+    <!-- Environment -->
+    <rect x="190" y="180" width="120" height="60" rx="5" style="fill: #95a5a6; stroke: #7f8c8d; stroke-width: 2;"/>
+    <text x="250" y="205" class="label" text-anchor="middle">环境</text>
+    <text x="250" y="220" class="small-label" text-anchor="middle">(Environment)</text>
+    <text x="250" y="235" class="formula" text-anchor="middle">s, r</text>
+    
+    <!-- Arrows and interactions -->
+    <!-- Actor to Environment -->
+    <path d="M 170 130 Q 200 150, 230 180" class="update-arrow"/>
+    <text x="190" y="145" class="small-label">动作 a</text>
+    
+    <!-- Environment to Actor -->
+    <path d="M 220 180 Q 190 160, 160 130" style="stroke: #9b59b6; stroke-width: 2; marker-end: url(#purple-arrow);"/>
+    <text x="170" y="165" class="small-label">状态 s</text>
+    
+    <!-- Environment to Critic -->
+    <path d="M 280 180 Q 310 160, 340 130" style="stroke: #9b59b6; stroke-width: 2; marker-end: url(#purple-arrow);"/>
+    <text x="320" y="165" class="small-label">状态 s</text>
+    
+    <!-- Critic to Actor -->
+    <path d="M 330 90 L 170 90" class="update-arrow"/>
+    <text x="250" y="85" class="small-label">TD误差 δ</text>
+    
+    <marker id="purple-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#9b59b6"/>
+    </marker>
+  </g>
+  
+  <!-- Update Equations -->
+  <g transform="translate(50, 270)">
+    <text x="250" y="0" class="subtitle" text-anchor="middle">参数更新方程</text>
+    
+    <!-- TD Error -->
+    <rect x="0" y="20" width="500" height="30" style="fill: #fff3cd; stroke: #ffeaa7; stroke-width: 1;"/>
+    <text x="10" y="35" class="label">TD误差：</text>
+    <text x="80" y="35" class="formula">δₜ = rₜ₊₁ + γV(sₜ₊₁; w) - V(sₜ; w)</text>
+    
+    <!-- Critic Update -->
+    <rect x="0" y="60" width="500" height="30" style="fill: #ffebee; stroke: #ffcdd2; stroke-width: 1;"/>
+    <text x="10" y="75" class="label">评论员更新：</text>
+    <text x="110" y="75" class="formula">w ← w + αc·δₜ·∇w V(sₜ; w)</text>
+    
+    <!-- Actor Update -->
+    <rect x="0" y="100" width="500" height="30" style="fill: #e3f2fd; stroke: #bbdefb; stroke-width: 1;"/>
+    <text x="10" y="115" class="label">演员更新：</text>
+    <text x="90" y="115" class="formula">θ ← θ + αa·δₜ·∇θ log π(aₜ|sₜ; θ)</text>
+  </g>
+  
+  <!-- Learning Process -->
+  <g transform="translate(50, 410)">
+    <text x="250" y="0" class="subtitle" text-anchor="middle">学习过程</text>
+    
+    <g transform="translate(0, 20)">
+      <text x="0" y="0" class="small-label">1. 演员根据当前策略选择动作</text>
+      <text x="0" y="18" class="small-label">2. 环境返回奖励和新状态</text>
+      <text x="0" y="36" class="small-label">3. 评论员计算TD误差</text>
+      <text x="0" y="54" class="small-label">4. 同时更新演员和评论员参数</text>
+      
+      <text x="300" y="0" class="label">算法优势：</text>
+      <text x="300" y="18" class="small-label">• 在线学习，样本效率高</text>
+      <text x="300" y="36" class="small-label">• 可处理连续动作空间</text>
+      <text x="300" y="54" class="small-label">• 方差小于纯策略梯度</text>
+    </g>
+  </g>
+</svg>

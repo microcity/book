@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'SimHei', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #2c3e50; }
+      .subtitle { font-family: 'SimHei', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #34495e; }
+      .label { font-family: 'SimHei', Arial, sans-serif; font-size: 12px; fill: #34495e; }
+      .small-label { font-family: 'SimHei', Arial, sans-serif; font-size: 11px; fill: #7f8c8d; }
+      .formula { font-family: 'Times New Roman', serif; font-size: 12px; fill: #2c3e50; }
+      .episode-line { stroke: #3498db; stroke-width: 2; fill: none; }
+      .value-line { stroke: #e74c3c; stroke-width: 2; fill: none; }
+      .grid-line { stroke: #ecf0f1; stroke-width: 1; }
+      .axis-line { stroke: #2c3e50; stroke-width: 2; }
+      .state-circle { fill: #f39c12; stroke: #d68910; stroke-width: 2; }
+      .terminal-state { fill: #27ae60; stroke: #229954; stroke-width: 2; }
+      .action-arrow { stroke: #2c3e50; stroke-width: 2; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="300" y="25" class="title" text-anchor="middle">时序差分学习算法原理</text>
+  
+  <!-- Left diagram: TD Learning Process -->
+  <g transform="translate(50, 50)">
+    <text x="100" y="0" class="subtitle" text-anchor="middle">TD学习过程</text>
+    
+    <!-- States -->
+    <circle cx="50" cy="50" r="20" class="state-circle"/>
+    <text x="50" y="55" class="label" text-anchor="middle">S₁</text>
+    
+    <circle cx="150" cy="50" r="20" class="state-circle"/>
+    <text x="150" y="55" class="label" text-anchor="middle">S₂</text>
+    
+    <circle cx="250" cy="50" r="20" class="terminal-state"/>
+    <text x="250" y="55" class="label" text-anchor="middle">T</text>
+    
+    <!-- Actions and rewards -->
+    <path d="M 70 50 L 130 50" class="action-arrow"/>
+    <text x="100" y="45" class="small-label" text-anchor="middle">a₁</text>
+    <text x="100" y="70" class="small-label" text-anchor="middle">r₁=1</text>
+    
+    <path d="M 170 50 L 230 50" class="action-arrow"/>
+    <text x="200" y="45" class="small-label" text-anchor="middle">a₂</text>
+    <text x="200" y="70" class="small-label" text-anchor="middle">r₂=5</text>
+    
+    <!-- Value estimates -->
+    <text x="50" y="95" class="small-label" text-anchor="middle">V(S₁)=2</text>
+    <text x="150" y="95" class="small-label" text-anchor="middle">V(S₂)=3</text>
+    <text x="250" y="95" class="small-label" text-anchor="middle">V(T)=0</text>
+    
+    <!-- TD update formula -->
+    <text x="50" y="130" class="subtitle">TD更新公式：</text>
+    <text x="50" y="150" class="formula">V(Sₜ) ← V(Sₜ) + α[rₜ₊₁ + γV(Sₜ₊₁) - V(Sₜ)]</text>
+    <text x="50" y="170" class="small-label">其中：α为学习率，γ为折扣因子</text>
+    
+    <!-- TD error -->
+    <text x="50" y="200" class="subtitle">TD误差：</text>
+    <text x="50" y="220" class="formula">δₜ = rₜ₊₁ + γV(Sₜ₊₁) - V(Sₜ)</text>
+    <text x="50" y="240" class="small-label">TD误差反映预测与实际的差异</text>
+  </g>
+  
+  <!-- Right diagram: Learning Curve -->
+  <g transform="translate(350, 50)">
+    <text x="100" y="0" class="subtitle" text-anchor="middle">价值函数收敛过程</text>
+    
+    <!-- Coordinate system -->
+    <path d="M 20 180 L 20 20" class="axis-line"/>
+    <path d="M 20 180 L 180 180" class="axis-line"/>
+    
+    <!-- Grid -->
+    <g class="grid-line">
+      <path d="M 20 160 L 180 160"/>
+      <path d="M 20 140 L 180 140"/>
+      <path d="M 20 120 L 180 120"/>
+      <path d="M 20 100 L 180 100"/>
+      <path d="M 20 80 L 180 80"/>
+      <path d="M 20 60 L 180 60"/>
+      <path d="M 20 40 L 180 40"/>
+      
+      <path d="M 60 20 L 60 180"/>
+      <path d="M 100 20 L 100 180"/>
+      <path d="M 140 20 L 140 180"/>
+      <path d="M 180 20 L 180 180"/>
+    </g>
+    
+    <!-- Learning curves -->
+    <path d="M 20 150 Q 60 120, 100 90 Q 140 70, 180 60" class="episode-line"/>
+    <path d="M 20 160 Q 60 140, 100 110 Q 140 85, 180 80" class="value-line"/>
+    
+    <!-- Labels -->
+    <text x="10" y="25" class="small-label" text-anchor="middle">V</text>
+    <text x="185" y="190" class="small-label">Episode</text>
+    
+    <!-- Y-axis labels -->
+    <text x="15" y="65" class="small-label" text-anchor="end">5</text>
+    <text x="15" y="105" class="small-label" text-anchor="end">3</text>
+    <text x="15" y="145" class="small-label" text-anchor="end">1</text>
+    <text x="15" y="185" class="small-label" text-anchor="end">0</text>
+    
+    <!-- X-axis labels -->
+    <text x="60" y="195" class="small-label" text-anchor="middle">100</text>
+    <text x="100" y="195" class="small-label" text-anchor="middle">200</text>
+    <text x="140" y="195" class="small-label" text-anchor="middle">300</text>
+    <text x="180" y="195" class="small-label" text-anchor="middle">400</text>
+    
+    <!-- Legend -->
+    <line x1="30" y1="210" x2="50" y2="210" class="episode-line"/>
+    <text x="55" y="214" class="small-label">TD(0)学习</text>
+    
+    <line x1="120" y1="210" x2="140" y2="210" class="value-line"/>
+    <text x="145" y="214" class="small-label">蒙特卡洛</text>
+  </g>
+  
+  <!-- Bottom: Algorithm comparison -->
+  <g transform="translate(50, 320)">
+    <text x="0" y="0" class="subtitle">算法特点比较</text>
+    
+    <g transform="translate(0, 25)">
+      <text x="0" y="0" class="label">时序差分学习：</text>
+      <text x="0" y="18" class="small-label">• 在线学习，无需等待回合结束</text>
+      <text x="0" y="36" class="small-label">• 使用自引导估计，方差较小</text>
+      <text x="0" y="54" class="small-label">• 适用于连续任务和无限回合</text>
+      
+      <text x="280" y="0" class="label">蒙特卡洛方法：</text>
+      <text x="280" y="18" class="small-label">• 需要完整回合才能更新</text>
+      <text x="280" y="36" class="small-label">• 使用实际回报，无偏估计</text>
+      <text x="280" y="54" class="small-label">• 方差较大，收敛较慢</text>
+    </g>
+    
+    <g transform="translate(0, 100)">
+      <text x="0" y="0" class="subtitle">TD(λ)算法族</text>
+      <text x="0" y="20" class="small-label">λ=0: 纯TD学习，只使用下一步奖励</text>
+      <text x="0" y="38" class="small-label">λ=1: 等价于蒙特卡洛方法</text>
+      <text x="0" y="56" class="small-label">0&lt;λ&lt;1: 权衡偏差与方差</text>
+    </g>
+  </g>
+</svg>

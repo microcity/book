@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'SimHei', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #2c3e50; }
+      .label { font-family: 'SimHei', Arial, sans-serif; font-size: 14px; fill: #34495e; }
+      .small-label { font-family: 'SimHei', Arial, sans-serif; font-size: 12px; fill: #7f8c8d; }
+      .formula { font-family: 'Times New Roman', serif; font-size: 14px; fill: #2c3e50; }
+      .inside-point { fill: #e74c3c; opacity: 0.7; }
+      .outside-point { fill: #3498db; opacity: 0.7; }
+      .circle-stroke { stroke: #2c3e50; stroke-width: 2; fill: none; }
+      .square-stroke { stroke: #2c3e50; stroke-width: 2; fill: none; }
+      .grid-line { stroke: #ecf0f1; stroke-width: 1; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="300" y="25" class="title" text-anchor="middle">蒙特卡洛方法估算圆周率</text>
+  
+  <!-- Main diagram -->
+  <g transform="translate(50, 50)">
+    <!-- Grid -->
+    <defs>
+      <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 20" fill="none" class="grid-line"/>
+      </pattern>
+    </defs>
+    <rect width="200" height="200" fill="url(#grid)"/>
+    
+    <!-- Square -->
+    <rect x="0" y="0" width="200" height="200" class="square-stroke"/>
+    
+    <!-- Circle -->
+    <circle cx="100" cy="100" r="100" class="circle-stroke"/>
+    
+    <!-- Sample points inside circle -->
+    <circle cx="50" cy="60" r="3" class="inside-point"/>
+    <circle cx="80" cy="40" r="3" class="inside-point"/>
+    <circle cx="120" cy="80" r="3" class="inside-point"/>
+    <circle cx="70" cy="130" r="3" class="inside-point"/>
+    <circle cx="140" cy="120" r="3" class="inside-point"/>
+    <circle cx="30" cy="30" r="3" class="inside-point"/>
+    <circle cx="90" cy="90" r="3" class="inside-point"/>
+    <circle cx="60" cy="140" r="3" class="inside-point"/>
+    <circle cx="130" cy="50" r="3" class="inside-point"/>
+    <circle cx="40" cy="100" r="3" class="inside-point"/>
+    
+    <!-- Sample points outside circle -->
+    <circle cx="20" cy="180" r="3" class="outside-point"/>
+    <circle cx="180" cy="20" r="3" class="outside-point"/>
+    <circle cx="190" cy="180" r="3" class="outside-point"/>
+    <circle cx="10" cy="10" r="3" class="outside-point"/>
+    <circle cx="190" cy="190" r="3" class="outside-point"/>
+    <circle cx="180" cy="180" r="3" class="outside-point"/>
+    
+    <!-- Labels -->
+    <text x="210" y="15" class="label">r = 1</text>
+    <text x="210" y="200" class="label">边长 = 2</text>
+  </g>
+  
+  <!-- Formula section -->
+  <g transform="translate(300, 80)">
+    <text x="0" y="0" class="label">估算原理：</text>
+    <text x="0" y="25" class="formula">π ≈ 4 × (圆内点数 / 总点数)</text>
+    
+    <text x="0" y="60" class="label">实验数据：</text>
+    <text x="0" y="85" class="small-label">• 圆内点数：10</text>
+    <text x="0" y="105" class="small-label">• 圆外点数：6</text>
+    <text x="0" y="125" class="small-label">• 总点数：16</text>
+    <text x="0" y="145" class="formula">π ≈ 4 × (10/16) = 2.5</text>
+    
+    <text x="0" y="180" class="label">收敛性：</text>
+    <text x="0" y="205" class="small-label">随机样本数 → ∞</text>
+    <text x="0" y="225" class="small-label">估算误差 → 0</text>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(50, 270)">
+    <circle cx="10" cy="10" r="5" class="inside-point"/>
+    <text x="25" y="15" class="small-label">圆内采样点</text>
+    
+    <circle cx="120" cy="10" r="5" class="outside-point"/>
+    <text x="135" y="15" class="small-label">圆外采样点</text>
+  </g>
+  
+  <!-- Algorithm steps -->
+  <g transform="translate(50, 310)">
+    <text x="0" y="0" class="label">算法步骤：</text>
+    <text x="0" y="20" class="small-label">1. 在单位正方形[-1,1]×[-1,1]内随机生成点(x,y)</text>
+    <text x="0" y="40" class="small-label">2. 判断点是否在单位圆x²+y²≤1内</text>
+    <text x="0" y="60" class="small-label">3. 统计圆内外点数，计算π的近似值</text>
+  </g>
+</svg>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="400" xmlns="http://www.w3.org/2000/svg">
+  
+  <!-- 背景 -->
+  <rect width="700" height="400" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="350" y="25" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">随机数生成与分布</text>
+  
+  <!-- 左侧：均匀分布 -->
+  <g>
+    <text x="120" y="60" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">均匀分布 U(0,1)</text>
+    
+    <!-- 坐标轴 -->
+    <line x1="50" y1="180" x2="190" y2="180" stroke="#333" stroke-width="2"/>
+    <line x1="50" y1="80" x2="50" y2="180" stroke="#333" stroke-width="2"/>
+    
+    <!-- 均匀分布矩形 -->
+    <rect x="70" y="100" width="100" height="80" fill="#4CAF50" fill-opacity="0.3" stroke="#4CAF50" stroke-width="2"/>
+    
+    <!-- 标签 -->
+    <text x="45" y="85" font-family="Arial" font-size="10" fill="#333">1</text>
+    <text x="45" y="185" font-family="Arial" font-size="10" fill="#333">0</text>
+    <text x="65" y="195" font-family="Arial" font-size="10" fill="#333">0</text>
+    <text x="175" y="195" font-family="Arial" font-size="10" fill="#333">1</text>
+    
+    <!-- 公式 -->
+    <text x="120" y="220" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">f(x) = 1, 0 ≤ x ≤ 1</text>
+  </g>
+  
+  <!-- 中间：指数分布 -->
+  <g>
+    <text x="350" y="60" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">指数分布 Exp(λ)</text>
+    
+    <!-- 坐标轴 -->
+    <line x1="280" y1="180" x2="420" y2="180" stroke="#333" stroke-width="2"/>
+    <line x1="280" y1="80" x2="280" y2="180" stroke="#333" stroke-width="2"/>
+    
+    <!-- 指数分布曲线 -->
+    <path d="M 280 90 Q 320 110 360 140 Q 390 160 420 175" stroke="#2196F3" stroke-width="3" fill="none"/>
+    <path d="M 280 90 Q 320 110 360 140 Q 390 160 420 175 L 420 180 L 280 180 Z" fill="#2196F3" fill-opacity="0.2"/>
+    
+    <!-- 标签 -->
+    <text x="275" y="85" font-family="Arial" font-size="10" fill="#333">λ</text>
+    <text x="275" y="185" font-family="Arial" font-size="10" fill="#333">0</text>
+    <text x="280" y="195" font-family="Arial" font-size="10" fill="#333">0</text>
+    
+    <!-- 公式 -->
+    <text x="350" y="220" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">f(x) = λe^(-λx), x ≥ 0</text>
+  </g>
+  
+  <!-- 右侧：正态分布 -->
+  <g>
+    <text x="580" y="60" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">正态分布 N(μ,σ²)</text>
+    
+    <!-- 坐标轴 -->
+    <line x1="510" y1="180" x2="650" y2="180" stroke="#333" stroke-width="2"/>
+    <line x1="580" y1="80" x2="580" y2="180" stroke="#333" stroke-width="2"/>
+    
+    <!-- 正态分布曲线 -->
+    <path d="M 510 175 Q 545 100 580 85 Q 615 100 650 175" stroke="#FF9800" stroke-width="3" fill="none"/>
+    <path d="M 510 175 Q 545 100 580 85 Q 615 100 650 175 L 650 180 L 510 180 Z" fill="#FF9800" fill-opacity="0.2"/>
+    
+    <!-- 标签 -->
+    <text x="575" y="195" font-family="Arial" font-size="10" fill="#333">μ</text>
+    
+    <!-- 公式 -->
+    <text x="580" y="220" font-family="Arial" font-size="11" text-anchor="middle" fill="#333">f(x) = (1/σ√2π)e^(-(x-μ)²/2σ²)</text>
+  </g>
+  
+  <!-- 下方：随机数生成流程 -->
+  <rect x="50" y="260" width="600" height="120" fill="#e8f4fd" stroke="#1976d2" stroke-width="2" rx="10"/>
+  <text x="350" y="280" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">随机数生成流程</text>
+  
+  <!-- 流程步骤 -->
+  <g>
+    <!-- 步骤1 -->
+    <rect x="80" y="300" width="80" height="30" fill="#4CAF50" stroke="#333" rx="5"/>
+    <text x="120" y="320" font-family="Arial" font-size="11" text-anchor="middle" fill="white">线性同余法</text>
+    
+    <!-- 箭头1 -->
+    <polygon points="170,315 185,310 185,320" fill="#333"/>
+    <line x1="160" y1="315" x2="180" y2="315" stroke="#333" stroke-width="2"/>
+    
+    <!-- 步骤2 -->
+    <rect x="190" y="300" width="80" height="30" fill="#2196F3" stroke="#333" rx="5"/>
+    <text x="230" y="320" font-family="Arial" font-size="11" text-anchor="middle" fill="white">均匀分布U(0,1)</text>
+    
+    <!-- 箭头2 -->
+    <polygon points="280,315 295,310 295,320" fill="#333"/>
+    <line x1="270" y1="315" x2="290" y2="315" stroke="#333" stroke-width="2"/>
+    
+    <!-- 步骤3 -->
+    <rect x="300" y="300" width="80" height="30" fill="#FF9800" stroke="#333" rx="5"/>
+    <text x="340" y="320" font-family="Arial" font-size="11" text-anchor="middle" fill="white">逆变换法</text>
+    
+    <!-- 箭头3 -->
+    <polygon points="390,315 405,310 405,320" fill="#333"/>
+    <line x1="380" y1="315" x2="400" y2="315" stroke="#333" stroke-width="2"/>
+    
+    <!-- 步骤4 -->
+    <rect x="410" y="300" width="80" height="30" fill="#9C27B0" stroke="#333" rx="5"/>
+    <text x="450" y="320" font-family="Arial" font-size="11" text-anchor="middle" fill="white">目标分布</text>
+    
+    <!-- 箭头4 -->
+    <polygon points="500,315 515,310 515,320" fill="#333"/>
+    <line x1="490" y1="315" x2="510" y2="315" stroke="#333" stroke-width="2"/>
+    
+    <!-- 步骤5 -->
+    <rect x="520" y="300" width="80" height="30" fill="#607D8B" stroke="#333" rx="5"/>
+    <text x="560" y="320" font-family="Arial" font-size="11" text-anchor="middle" fill="white">仿真应用</text>
+  </g>
+  
+  <!-- 说明文字 -->
+  <text x="350" y="355" font-family="Arial" font-size="12" text-anchor="middle" fill="#666">通过逆变换法将均匀分布随机数转换为指定概率分布的随机变量</text>
+  
+</svg>

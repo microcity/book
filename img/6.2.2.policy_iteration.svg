@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="550" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+     refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="700" height="550" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="350" y="25" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">策略迭代算法流程</text>
+  
+  <!-- 初始化 -->
+  <ellipse cx="350" cy="70" rx="50" ry="25" fill="#4CAF50" stroke="#333" stroke-width="2"/>
+  <text x="350" y="77" font-family="Arial" font-size="12" text-anchor="middle" fill="white">初始化策略π₀</text>
+  
+  <!-- 策略评估 -->
+  <rect x="280" y="130" width="140" height="50" fill="#2196F3" stroke="#333" stroke-width="2" rx="10"/>
+  <text x="350" y="150" font-family="Arial" font-size="12" text-anchor="middle" fill="white">策略评估</text>
+  <text x="350" y="165" font-family="Arial" font-size="11" text-anchor="middle" fill="white">计算 V^π(s)</text>
+  
+  <!-- 策略改进 -->
+  <rect x="280" y="220" width="140" height="50" fill="#FF9800" stroke="#333" stroke-width="2" rx="10"/>
+  <text x="350" y="240" font-family="Arial" font-size="12" text-anchor="middle" fill="white">策略改进</text>
+  <text x="350" y="255" font-family="Arial" font-size="11" text-anchor="middle" fill="white">π' = greedy(V^π)</text>
+  
+  <!-- 收敛判断 -->
+  <polygon points="350,300 400,325 350,350 300,325" fill="#9C27B0" stroke="#333" stroke-width="2"/>
+  <text x="350" y="330" font-family="Arial" font-size="11" text-anchor="middle" fill="white">π' = π ?</text>
+  
+  <!-- 输出最优策略 -->
+  <ellipse cx="350" cy="410" rx="60" ry="25" fill="#F44336" stroke="#333" stroke-width="2"/>
+  <text x="350" y="417" font-family="Arial" font-size="12" text-anchor="middle" fill="white">输出最优策略π*</text>
+  
+  <!-- 连接箭头 -->
+  <g stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)">
+    <!-- 初始化到策略评估 -->
+    <line x1="350" y1="95" x2="350" y2="125"/>
+    
+    <!-- 策略评估到策略改进 -->
+    <line x1="350" y1="180" x2="350" y2="215"/>
+    
+    <!-- 策略改进到判断 -->
+    <line x1="350" y1="270" x2="350" y2="295"/>
+    
+    <!-- 判断到输出(是) -->
+    <line x1="350" y1="355" x2="350" y2="385"/>
+    
+    <!-- 判断到策略评估(否) -->
+    <path d="M 300 325 L 200 325 L 200 155 L 275 155" stroke="#666" stroke-dasharray="5,5"/>
+  </g>
+  
+  <!-- 标签 -->
+  <text x="360" y="375" font-family="Arial" font-size="10" fill="#333">是</text>
+  <text x="250" y="320" font-family="Arial" font-size="10" fill="#333">否</text>
+  
+  <!-- 右侧详细说明 -->
+  <rect x="480" y="100" width="200" height="320" fill="#f0f8ff" stroke="#4682b4" stroke-width="2" rx="10"/>
+  <text x="580" y="125" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">算法详解</text>
+  
+  <!-- 策略评估详解 -->
+  <text x="490" y="150" font-family="Arial" font-size="12" font-weight="bold" fill="#2196F3">1. 策略评估</text>
+  <text x="490" y="170" font-family="Arial" font-size="10" fill="#333">给定策略π，求解线性方程组：</text>
+  <text x="490" y="185" font-family="Arial" font-size="10" fill="#333">V^π(s) = Σₐ π(a|s) Σₛ' P(s'|s,a)</text>
+  <text x="490" y="200" font-family="Arial" font-size="10" fill="#333">     [R(s,a,s') + γV^π(s')]</text>
+  
+  <!-- 策略改进详解 -->
+  <text x="490" y="225" font-family="Arial" font-size="12" font-weight="bold" fill="#FF9800">2. 策略改进</text>
+  <text x="490" y="245" font-family="Arial" font-size="10" fill="#333">对每个状态s，选择贪婪动作：</text>
+  <text x="490" y="260" font-family="Arial" font-size="10" fill="#333">π'(s) = argmax Σₛ' P(s'|s,a)</text>
+  <text x="490" y="275" font-family="Arial" font-size="10" fill="#333">        [R(s,a,s') + γV^π(s')]</text>
+  
+  <!-- 收敛性质 -->
+  <text x="490" y="300" font-family="Arial" font-size="12" font-weight="bold" fill="#9C27B0">3. 收敛性质</text>
+  <text x="490" y="320" font-family="Arial" font-size="10" fill="#333">• 策略序列单调改进</text>
+  <text x="490" y="335" font-family="Arial" font-size="10" fill="#333">• 有限步内收敛到最优策略</text>
+  <text x="490" y="350" font-family="Arial" font-size="10" fill="#333">• 每次迭代都得到确定性策略</text>
+  
+  <!-- 时间复杂度 -->
+  <text x="490" y="375" font-family="Arial" font-size="12" font-weight="bold" fill="#F44336">4. 复杂度</text>
+  <text x="490" y="395" font-family="Arial" font-size="10" fill="#333">• 每次策略评估：O(|S|³)</text>
+  <text x="490" y="410" font-family="Arial" font-size="10" fill="#333">• 迭代次数：通常较少</text>
+  
+  <!-- 左侧示例 -->
+  <rect x="20" y="100" width="180" height="320" fill="#fff8e1" stroke="#FFA000" stroke-width="2" rx="10"/>
+  <text x="110" y="125" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">简单示例</text>
+  
+  <!-- 网格世界 -->
+  <g>
+    <text x="110" y="150" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">3×3 网格世界</text>
+    
+    <!-- 网格 -->
+    <g stroke="#666" stroke-width="1" fill="none">
+      <rect x="50" y="160" width="120" height="120"/>
+      <line x1="90" y1="160" x2="90" y2="280"/>
+      <line x1="130" y1="160" x2="130" y2="280"/>
+      <line x1="50" y1="200" x2="170" y2="200"/>
+      <line x1="50" y1="240" x2="170" y2="240"/>
+    </g>
+    
+    <!-- 状态标记 -->
+    <circle cx="70" cy="180" r="8" fill="#4CAF50"/>
+    <text x="70" y="185" font-family="Arial" font-size="8" text-anchor="middle" fill="white">S</text>
+    
+    <circle cx="150" cy="260" r="8" fill="#F44336"/>
+    <text x="150" y="265" font-family="Arial" font-size="8" text-anchor="middle" fill="white">G</text>
+    
+    <!-- 策略箭头示例 -->
+    <g stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)">
+      <line x1="70" y1="200" x2="70" y2="220"/>
+      <line x1="110" y1="180" x2="130" y2="180"/>
+      <line x1="110" y1="220" x2="130" y2="220"/>
+      <line x1="150" y1="200" x2="150" y2="220"/>
+    </g>
+    
+    <text x="110" y="300" font-family="Arial" font-size="10" text-anchor="middle" fill="#333">初始策略π₀</text>
+    
+    <!-- 价值函数示例 -->
+    <text x="110" y="325" font-family="Arial" font-size="11" font-weight="bold" text-anchor="middle" fill="#333">价值函数</text>
+    <text x="30" y="345" font-family="Arial" font-size="9" fill="#333">V(s₁) = -3.2</text>
+    <text x="30" y="360" font-family="Arial" font-size="9" fill="#333">V(s₂) = -2.1</text>
+    <text x="30" y="375" font-family="Arial" font-size="9" fill="#333">V(s₃) = -1.5</text>
+    <text x="110" y="345" font-family="Arial" font-size="9" fill="#333">V(s₄) = -2.8</text>
+    <text x="110" y="360" font-family="Arial" font-size="9" fill="#333">V(s₅) = -1.8</text>
+    <text x="110" y="375" font-family="Arial" font-size="9" fill="#333">V(s₆) = -1.2</text>
+    <text x="160" y="345" font-family="Arial" font-size="9" fill="#333">V(s₇) = -2.3</text>
+    <text x="160" y="360" font-family="Arial" font-size="9" fill="#333">V(s₈) = -1.1</text>
+    <text x="160" y="375" font-family="Arial" font-size="9" fill="#333">V(s₉) = 0.0</text>
+  </g>
+  
+  <!-- 迭代指示 -->
+  <text x="350" y="480" font-family="Arial" font-size="12" text-anchor="middle" fill="#666">策略迭代通过交替进行策略评估和策略改进，保证收敛到最优策略</text>
+  
+</svg>

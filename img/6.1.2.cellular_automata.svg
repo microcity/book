@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+     refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="700" height="500" fill="#f8f9fa"/>
+  
+  <!-- 网格 -->
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ddd" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect x="50" y="50" width="600" height="400" fill="url(#grid)"/>
+  
+  <!-- 标题 -->
+  <text x="350" y="30" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">元胞自动机交通流模型</text>
+  
+  <!-- 道路 -->
+  <rect x="80" y="200" width="540" height="60" fill="#666" stroke="#333" stroke-width="2"/>
+  <rect x="80" y="210" width="540" height="40" fill="#999"/>
+  
+  <!-- 车道分隔线 -->
+  <g stroke="white" stroke-width="2" stroke-dasharray="10,10">
+    <line x1="80" y1="230" x2="620" y2="230"/>
+  </g>
+  
+  <!-- 车辆在不同时间步的位置 -->
+  <!-- t=0 -->
+  <g>
+    <text x="70" y="180" font-family="Arial" font-size="14" font-weight="bold" fill="#333">t=0</text>
+    <rect x="120" y="215" width="25" height="15" fill="#4CAF50" rx="3"/>
+    <text x="132" y="225" font-family="Arial" font-size="10" text-anchor="middle" fill="white">1</text>
+    
+    <rect x="200" y="215" width="25" height="15" fill="#2196F3" rx="3"/>
+    <text x="212" y="225" font-family="Arial" font-size="10" text-anchor="middle" fill="white">2</text>
+    
+    <rect x="320" y="215" width="25" height="15" fill="#FF9800" rx="3"/>
+    <text x="332" y="225" font-family="Arial" font-size="10" text-anchor="middle" fill="white">3</text>
+    
+    <rect x="440" y="215" width="25" height="15" fill="#9C27B0" rx="3"/>
+    <text x="452" y="225" font-family="Arial" font-size="10" text-anchor="middle" fill="white">4</text>
+  </g>
+  
+  <!-- t=1 -->
+  <g>
+    <text x="70" y="300" font-family="Arial" font-size="14" font-weight="bold" fill="#333">t=1</text>
+    <rect x="150" y="335" width="25" height="15" fill="#4CAF50" rx="3"/>
+    <text x="162" y="345" font-family="Arial" font-size="10" text-anchor="middle" fill="white">1</text>
+    
+    <rect x="230" y="335" width="25" height="15" fill="#2196F3" rx="3"/>
+    <text x="242" y="345" font-family="Arial" font-size="10" text-anchor="middle" fill="white">2</text>
+    
+    <rect x="350" y="335" width="25" height="15" fill="#FF9800" rx="3"/>
+    <text x="362" y="345" font-family="Arial" font-size="10" text-anchor="middle" fill="white">3</text>
+    
+    <rect x="470" y="335" width="25" height="15" fill="#9C27B0" rx="3"/>
+    <text x="482" y="345" font-family="Arial" font-size="10" text-anchor="middle" fill="white">4</text>
+  </g>
+  
+  <!-- 道路2 -->
+  <rect x="80" y="320" width="540" height="60" fill="#666" stroke="#333" stroke-width="2"/>
+  <rect x="80" y="330" width="540" height="40" fill="#999"/>
+  
+  <!-- 车道分隔线2 -->
+  <g stroke="white" stroke-width="2" stroke-dasharray="10,10">
+    <line x1="80" y1="350" x2="620" y2="350"/>
+  </g>
+  
+  <!-- 移动箭头 -->
+  <g stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)">
+    <path d="M 132 240 L 162 320"/>
+    <path d="M 212 240 L 242 320"/>
+    <path d="M 332 240 L 362 320"/>
+    <path d="M 452 240 L 482 320"/>
+  </g>
+  
+  <!-- 速度标注 -->
+  <text x="90" y="285" font-family="Arial" font-size="12" fill="#666">v=1格/时间步</text>
+  
+  <!-- 规则说明 -->
+  <rect x="50" y="420" width="600" height="60" fill="#f0f0f0" stroke="#ccc" rx="5"/>
+  <text x="60" y="440" font-family="Arial" font-size="14" font-weight="bold" fill="#333">更新规则：</text>
+  <text x="60" y="460" font-family="Arial" font-size="12" fill="#333">1. 加速：如果前方无障碍且速度小于最大速度，则速度+1</text>
+  <text x="60" y="475" font-family="Arial" font-size="12" fill="#333">2. 减速：如果前方距离小于当前速度，则调整速度避免碰撞</text>
+  
+  <!-- 网格标注 -->
+  <text x="100" y="470" font-family="Arial" font-size="10" fill="#999">每格代表一个空间单元</text>
+  
+</svg>

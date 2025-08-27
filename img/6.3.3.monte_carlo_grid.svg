@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'SimHei', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #2c3e50; }
+      .subtitle { font-family: 'SimHei', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #34495e; }
+      .label { font-family: 'SimHei', Arial, sans-serif; font-size: 12px; fill: #34495e; }
+      .small-label { font-family: 'SimHei', Arial, sans-serif; font-size: 10px; fill: #7f8c8d; }
+      .formula { font-family: 'Times New Roman', serif; font-size: 11px; fill: #2c3e50; }
+      .grid-cell { stroke: #2c3e50; stroke-width: 1; }
+      .start-cell { fill: #2ecc71; }
+      .goal-cell { fill: #e74c3c; }
+      .obstacle-cell { fill: #34495e; }
+      .normal-cell { fill: #ecf0f1; }
+      .path-cell { fill: #f39c12; }
+      .value-text { font-family: Arial, sans-serif; font-size: 10px; fill: #2c3e50; text-anchor: middle; }
+      .arrow { stroke: #2c3e50; stroke-width: 2; marker-end: url(#arrowhead); }
+      .reward-text { font-family: Arial, sans-serif; font-size: 9px; fill: #e74c3c; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2c3e50"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="300" y="25" class="title" text-anchor="middle">蒙特卡洛方法求解网格世界最短路径</text>
+  
+  <!-- Left: Grid World -->
+  <g transform="translate(50, 50)">
+    <text x="60" y="0" class="subtitle" text-anchor="middle">5×5网格世界</text>
+    
+    <!-- Grid cells -->
+    <g id="grid">
+      <!-- Row 0 -->
+      <rect x="0" y="20" width="24" height="24" class="grid-cell start-cell"/>
+      <rect x="24" y="20" width="24" height="24" class="grid-cell normal-cell"/>
+      <rect x="48" y="20" width="24" height="24" class="grid-cell normal-cell"/>
+      <rect x="72" y="20" width="24" height="24" class="grid-cell obstacle-cell"/>
+      <rect x="96" y="20" width="24" height="24" class="grid-cell normal-cell"/>
+      
+      <!-- Row 1 -->
+      <rect x="0" y="44" width="24" height="24" class="grid-cell normal-cell"/>
+      <rect x="24" y="44" width="24" height="24" class="grid-cell path-cell"/>
+      <rect x="48" y="44" width="24" height="24" class="grid-cell normal-cell"/>
+      <rect x="72" y="44" width="24" height="24" class="grid-cell obstacle-cell"/>
+      <rect x="96" y="44" width="24" height="24" class="grid-cell normal-cell"/>
+      
+      <!-- Row 2 -->
+      <rect x="0" y="68" width="24" height="24" class="grid-cell normal-cell"/>
+      <rect x="24" y="68" width="24" height="24" class="grid-cell path-cell"/>
+      <rect x="48" y="68" width="24" height="24" class="grid-cell path-cell"/>
+      <rect x="72" y="68" width="24" height="24" class="grid-cell path-cell"/>
+      <rect x="96" y="68" width="24" height="24" class="grid-cell normal-cell"/>
+      
+      <!-- Row 3 -->
+      <rect x="0" y="92" width="24" height="24" class="grid-cell normal-cell"/>
+      <rect x="24" y="92" width="24" height="24" class="grid-cell normal-cell"/>
+      <rect x="48" y="92" width="24" height="24" class="grid-cell normal-cell"/>
+      <rect x="72" y="92" width="24" height="24" class="grid-cell path-cell"/>
+      <rect x="96" y="92" width="24" height="24" class="grid-cell normal-cell"/>
+      
+      <!-- Row 4 -->
+      <rect x="0" y="116" width="24" height="24" class="grid-cell normal-cell"/>
+      <rect x="24" y="116" width="24" height="24" class="grid-cell normal-cell"/>
+      <rect x="48" y="116" width="24" height="24" class="grid-cell normal-cell"/>
+      <rect x="72" y="116" width="24" height="24" class="grid-cell path-cell"/>
+      <rect x="96" y="116" width="24" height="24" class="grid-cell goal-cell"/>
+    </g>
+    
+    <!-- Grid coordinates -->
+    <text x="12" y="15" class="small-label" text-anchor="middle">(0,0)</text>
+    <text x="108" y="15" class="small-label" text-anchor="middle">(0,4)</text>
+    <text x="12" y="155" class="small-label" text-anchor="middle">(4,0)</text>
+    <text x="108" y="155" class="small-label" text-anchor="middle">(4,4)</text>
+    
+    <!-- Legend -->
+    <g transform="translate(130, 30)">
+      <rect x="0" y="0" width="15" height="15" class="start-cell grid-cell"/>
+      <text x="20" y="12" class="small-label">起点</text>
+      
+      <rect x="0" y="20" width="15" height="15" class="goal-cell grid-cell"/>
+      <text x="20" y="32" class="small-label">终点</text>
+      
+      <rect x="0" y="40" width="15" height="15" class="obstacle-cell grid-cell"/>
+      <text x="20" y="52" class="small-label">障碍</text>
+      
+      <rect x="0" y="60" width="15" height="15" class="path-cell grid-cell"/>
+      <text x="20" y="72" class="small-label">最优路径</text>
+    </g>
+  </g>
+  
+  <!-- Right: Monte Carlo Process -->
+  <g transform="translate(320, 50)">
+    <text x="100" y="0" class="subtitle" text-anchor="middle">蒙特卡洛学习过程</text>
+    
+    <!-- Episode samples -->
+    <g transform="translate(0, 20)">
+      <text x="0" y="0" class="label">回合样本：</text>
+      
+      <text x="0" y="20" class="small-label">Episode 1: (0,0)→(1,0)→(1,1)→(2,1)→(2,2)→(2,3)→(3,3)→(4,3)→(4,4)</text>
+      <text x="200" y="20" class="reward-text">G₁ = -8</text>
+      
+      <text x="0" y="40" class="small-label">Episode 2: (0,0)→(0,1)→(0,2)→(1,2)→(2,2)→(3,2)→(4,2)→(4,3)→(4,4)</text>
+      <text x="200" y="40" class="reward-text">G₂ = -8</text>
+      
+      <text x="0" y="60" class="small-label">Episode 3: (0,0)→(1,0)→(1,1)→(1,2)→(2,2)→(2,3)→(3,3)→(4,3)→(4,4)</text>
+      <text x="200" y="60" class="reward-text">G₃ = -8</text>
+      
+      <text x="0" y="85" class="label">价值函数更新：</text>
+      <text x="0" y="105" class="formula">V(s) ← V(s) + α[G - V(s)]</text>
+      <text x="0" y="125" class="small-label">其中G为从状态s开始的实际回报</text>
+    </g>
+  </g>
+  
+  <!-- Bottom: Algorithm details -->
+  <g transform="translate(50, 220)">
+    <text x="0" y="0" class="subtitle">蒙特卡洛方法特点</text>
+    
+    <g transform="translate(0, 25)">
+      <text x="0" y="0" class="label">首次访问MC算法：</text>
+      <text x="0" y="18" class="small-label">1. 生成一个完整回合的轨迹</text>
+      <text x="0" y="36" class="small-label">2. 对轨迹中每个状态的首次出现，计算后续回报</text>
+      <text x="0" y="54" class="small-label">3. 更新该状态的价值函数估计</text>
+      <text x="0" y="72" class="small-label">4. 重复直到收敛</text>
+      
+      <text x="280" y="0" class="label">算法优缺点：</text>
+      <text x="280" y="18" class="small-label">✓ 无需环境模型</text>
+      <text x="280" y="36" class="small-label">✓ 简单易实现</text>
+      <text x="280" y="54" class="small-label">✗ 需要完整回合</text>
+      <text x="280" y="72" class="small-label">✗ 高方差，收敛慢</text>
+    </g>
+    
+    <g transform="translate(0, 110)">
+      <text x="0" y="0" class="subtitle">收敛性分析</text>
+      <text x="0" y="20" class="formula">E[V_n(s)] → V^π(s) as n → ∞</text>
+      <text x="0" y="40" class="small-label">根据大数定律，MC估计收敛到真实价值函数</text>
+      <text x="0" y="58" class="small-label">收敛速度：O(1/√n)，其中n为访问状态s的次数</text>
+    </g>
+    
+    <g transform="translate(0, 180)">
+      <text x="0" y="0" class="subtitle">应用场景</text>
+      <text x="0" y="18" class="small-label">• 游戏AI：围棋、扑克等回合制游戏</text>
+      <text x="0" y="36" class="small-label">• 金融建模：期权定价、风险评估</text>
+      <text x="0" y="54" class="small-label">• 物理仿真：粒子系统、分子动力学</text>
+      <text x="280" y="18" class="small-label">• 路径规划：移动机器人导航</text>
+      <text x="280" y="36" class="small-label">• 资源分配：云计算任务调度</text>
+      <text x="280" y="54" class="small-label">• 库存管理：供应链优化</text>
+    </g>
+  </g>
+</svg>
